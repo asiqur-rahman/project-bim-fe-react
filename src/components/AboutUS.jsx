@@ -2,9 +2,9 @@ function AboutUS() {
 
     return (
         <>
-        <div class="page-banner-area bg-2">
-            <div class="container">
-                <div class="page-banner-content">
+        <div className="page-banner-area bg-2">
+            <div className="container">
+                <div className="page-banner-content">
                     <h1>Sus-Plan</h1>
                     <ul>
                         <li><a href="#">About Us</a></li>
@@ -13,12 +13,12 @@ function AboutUS() {
                 </div>
             </div>
         </div>
-        <div class="campus-information-area pt-70 pb-70">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
-                    <div class="campus-content pr-20">
-                        <div class="campus-title">
+        <div className="campus-information-area pt-70 pb-70">
+        <div className="container">
+            <div className="row align-items-center">
+                <div className="col-lg-12" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
+                    <div className="campus-content pr-20">
+                        <div className="campus-title">
                             <h2>Sus-Plan</h2>
                             <p style={{textAlign:"justify"}}>
                                 Sus-Plan is a project, introducing on 1 November 2022 with a tenure of 2 years, till 31 October 2024. It is a collaboration between Bangladesh Institute of Management (BIM) and German development agency, The Deutsche Gesellschaft für Internationale Zusammenarbeit GmbH (GiZ). BIM works under the Ministry of Industries, the People’s Republic of Bangladesh and GiZ operates under German Federal Ministry for Economic Cooperation and Development (BMZ). <br /><br />
