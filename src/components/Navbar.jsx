@@ -1,3 +1,4 @@
+import Logo from '../assets/images/logo.png'
 
 function Navbar() {
 
@@ -9,8 +10,8 @@ function Navbar() {
                 <div className="mobile-responsive-menu">
                     <div className="logo">
                         <a href="index.html">
-                            <img style={{height:"52px"}} src="/images/logo.png" className="main-logo" lt="logo"/>
-                            <img style={{height:"52px"}} src="/images/logo.png" className="white-logo" alt="logo"/>
+                            <img style={{height:"52px"}} src={Logo} className="main-logo" lt="logo"/>
+                            <img style={{height:"52px"}} src={Logo} className="white-logo" alt="logo"/>
                         </a>
                     </div>
                 </div>
@@ -20,7 +21,7 @@ function Navbar() {
             <div className="container-fluid">
                 <nav className="navbar navbar-expand-md navbar-light">
                     <a className="navbar-brand" href="index.html">
-                        <img style={{height:"52px"}} src="/images/logo.png" alt="logo"/>
+                        <img style={{height:"52px"}} src={Logo} alt="logo"/>
                     </a>
                     <div className="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto">
