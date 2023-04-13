@@ -11,7 +11,7 @@ function Events() {
                 <div className="col-lg-4 col-md-6">
                     <div className="single-events-card style-4">
                         <div className="events-image">
-                            <a href="events-details.html"><img src="/images/events/events-3.jpg" alt="Image"/></a>
+                            <a href="events-details.html"><img loading="lazy" src="/images/events/events-3.jpg" alt="Image"/></a>
                             <div className="date">
                                 <span>18</span>
                                 <p>Mar 2023</p>
@@ -25,7 +25,7 @@ function Events() {
                 <div className="col-lg-4 col-md-6">
                     <div className="single-events-card style-4">
                         <div className="events-image">
-                            <a href="events-details.html"><img src="/images/events/events-2.jpg" alt="Image"/></a>
+                            <a href="events-details.html"><img loading="lazy" src="/images/events/events-2.jpg" alt="Image"/></a>
                             <div className="date">
                                 <span>17</span>
                                 <p>Mar 2023</p>
@@ -39,7 +39,7 @@ function Events() {
                 <div className="col-lg-4 col-md-6">
                     <div className="single-events-card style-4">
                         <div className="events-image">
-                            <a href="events-details.html"><img src="/images/events/events-1.jpg" alt="Image"/></a>
+                            <a href="events-details.html"><img loading="lazy" src="/images/events/events-1.jpg" alt="Image"/></a>
                             <div className="date">
                                 <span>17</span>
                                 <p>Mar 2023</p>

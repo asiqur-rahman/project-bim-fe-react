@@ -18,7 +18,7 @@ function CampusInformation() {
                 </div>
                 <div className="col-lg-6" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
                     <div className="campus-image pl-20">
-                        <img src="/images/campus-information/campus-1.jpg" alt="Image"/>
+                        <img loading="lazy" src="/images/campus-information/campus-1.jpg" alt="Image"/>
                     </div>
                 </div>
             </div>

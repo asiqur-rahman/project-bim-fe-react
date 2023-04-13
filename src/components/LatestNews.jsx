@@ -11,7 +11,7 @@ function LatestNews() {
                 <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
                     <div className="single-news-card">
                         <div className="news-img">
-                            <a href="news-details.html"><img src="/images/events/events-3.jpg" alt="Image"/></a>
+                            <a href="news-details.html"><img loading="lazy" src="/images/events/events-3.jpg" alt="Image"/></a>
                         </div>
                         <div className="news-content">
                             <div className="list">
@@ -27,7 +27,7 @@ function LatestNews() {
                 <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400" data-aos-once="true">
                     <div className="single-news-card">
                         <div className="news-img">
-                            <a href="news-details.html"><img src="/images/events/events-2.jpg" alt="Image"/></a>
+                            <a href="news-details.html"><img loading="lazy" src="/images/events/events-2.jpg" alt="Image"/></a>
                         </div>
                         <div className="news-content">
                             <div className="list">
@@ -43,7 +43,7 @@ function LatestNews() {
                 <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600" data-aos-once="true">
                     <div className="single-news-card">
                         <div className="news-img">
-                            <a href="news-details.html"><img src="/images/events/events-1.jpg" alt="Image"/></a>
+                            <a href="news-details.html"><img loading="lazy" src="/images/events/events-1.jpg" alt="Image"/></a>
                         </div>
                         <div className="news-content">
                             <div className="list">

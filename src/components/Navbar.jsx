@@ -11,7 +11,7 @@ function Navbar() {
                 <div className="mobile-responsive-menu">
                     <div className="logo">
                         <a href="index">
-                            <img style={{height:"52px"}} src={Logo} className="main-logo" lt="logo"/>
+                            <img style={{height:"52px"}} src={Logo} className="main-logo" alt="logo"/>
                             <img style={{height:"52px"}} src={Logo} className="white-logo" alt="logo"/>
                         </a>
                     </div>

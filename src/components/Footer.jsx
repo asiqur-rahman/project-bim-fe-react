@@ -7,7 +7,7 @@ function Footer() {
             <div className="row">
                 <div className="col-lg-3 col-sm-6">
                     <div className="footer-logo-area">
-                        <a href="index.html"><img style={{height:"52px"}} src="/images/logo.png" alt="Image"/></a>
+                        <a href="index.html"><img loading="lazy" style={{height:"52px"}} src="/images/logo.png" alt="Image"/></a>
                         <p>Sus-Plan project aims to aware professionals and professional bodies in developing and maintaining sustainable operations.</p>
                     </div>
                 </div>
@@ -61,7 +61,7 @@ function Footer() {
                 </div>
             </div>
             <div className="shape">
-                <img src="/images/shape-1.png" alt="Image"/>
+                <img loading="lazy" src="/images/shape-1.png" alt="Image"/>
             </div>
         </div>
     </div>
