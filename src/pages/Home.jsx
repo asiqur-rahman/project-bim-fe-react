@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import TopHeader from '../components/TopHeader'
 import Spinner from '../components/Spinner'
 import Navbar from '../components/Navbar'
@@ -7,6 +8,10 @@ import CampusInformation from '../components/CampusInformation'
 import Course from '../components/Course'
 
 function Home() {
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   return (
     <>

@@ -1,5 +1,5 @@
 function Course() {
-
+    
     return (
         <div className="courses-area ptb-100 bg-f4f6f9">
         <div className="container">
