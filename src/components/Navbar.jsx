@@ -4,7 +4,7 @@ function Navbar() {
 
   return (
     <>
-    <div className="navbar-area nav-bg-2">
+    <div className="navbar-area">
         <div className="mobile-responsive-nav">
             <div className="container">
                 <div className="mobile-responsive-menu">
