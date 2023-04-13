@@ -19,7 +19,7 @@ function HomePage() {
 
   return (
     <>
-    <Spinner/>
+    {/* <Spinner/> */}
     <TopHeader/>
     <Navbar/>
     <Banner/>

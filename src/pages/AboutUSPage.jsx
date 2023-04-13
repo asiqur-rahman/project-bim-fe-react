@@ -16,7 +16,7 @@ function AboutUSPage() {
   return (
     <>
     <TopHeader/>
-    <Spinner/>
+    {/* <Spinner/> */}
     <Navbar/>
     <AboutUS/>
     <Footer/>
