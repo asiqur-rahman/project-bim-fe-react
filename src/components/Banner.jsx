@@ -1,5 +1,4 @@
 import HeroSlider, { Slide, Nav } from "hero-slider";
-import { Link } from "react-router-dom";
 
 function Banner() {
 
