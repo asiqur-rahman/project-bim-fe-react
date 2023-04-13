@@ -48,5 +48,6 @@ jobs:
             **/public/**
             **/src/**
             package.json
+            vite.config.js
             index.html
             yarn.lock
