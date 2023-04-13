@@ -20,7 +20,7 @@ jobs:
         run: |
           yarn cache clean
           yarn
-          yarn run build_g
+          yarn run build
         
       # Deploy to cPanel
       # - name: 📂 Sync files 1
