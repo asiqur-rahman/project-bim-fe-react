@@ -1,25 +1,36 @@
-import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home  from './pages/Home'
+import HomePage  from './pages/HomePage'
+import AboutUSPage  from './pages/AboutUSPage'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-        {/* <Routes>
-          <Route path="/MovieMedia" element={<MovieMedia />} />
+          <Route path="/" element={<HomePage />} />
         </Routes>
         <Routes>
-          <Route path="/Login" element={<Login />} />
+          <Route path="/about-us/:page" element={<AboutUSPage />} />
         </Routes>
         <Routes>
-          <Route path="/Register" element={<Register />} />
-        </Routes> */}
+          <Route path="/study/:page" element={<HomePage />} />
+        </Routes>
+        <Routes>
+          <Route path="/research/:page" element={<HomePage />} />
+        </Routes>
+        <Routes>
+          <Route path="/stories/:page" element={<HomePage />} />
+        </Routes>
+        <Routes>
+          <Route path="/events/:page" element={<HomePage />} />
+        </Routes>
+        <Routes>
+          <Route path="/news-blog/:page" element={<HomePage />} />
+        </Routes>
+        <Routes>
+          <Route path="/registration/:page" element={<HomePage />} />
+        </Routes>
       </BrowserRouter>
     </div>
   )

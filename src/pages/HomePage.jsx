@@ -11,7 +11,7 @@ import Events from '../components/Events'
 import LatestNews from '../components/LatestNews'
 import Footer from '../components/Footer'
 
-function Home() {
+function HomePage() {
 
   useEffect(() => {
     AOS.init();
@@ -34,4 +34,4 @@ function Home() {
   )
 }
 
-export default Home
+export default HomePage
