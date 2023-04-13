@@ -1,4 +1,4 @@
-function AcademicArea() {
+function Academic() {
 
     return (
         <div className="academic-area pt-100 pb-70">
@@ -53,4 +53,4 @@ function AcademicArea() {
     )
 }
 
-export default AcademicArea
+export default Academic

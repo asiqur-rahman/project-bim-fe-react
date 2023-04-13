@@ -3,9 +3,13 @@ import TopHeader from '../components/TopHeader'
 import Spinner from '../components/Spinner'
 import Navbar from '../components/Navbar'
 import Banner from '../components/Banner'
-import AcademicArea from '../components/AcademicArea'
+import Academic from '../components/Academic'
 import CampusInformation from '../components/CampusInformation'
 import Course from '../components/Course'
+import Admission from '../components/Admission'
+import Events from '../components/Events'
+import LatestNews from '../components/LatestNews'
+import Footer from '../components/Footer'
 
 function Home() {
 
@@ -19,9 +23,13 @@ function Home() {
     <TopHeader/>
     <Navbar/>
     <Banner/>
-    <AcademicArea/>
+    <Academic/>
     <CampusInformation/>
     <Course/>
+    <Admission/>
+    <Events/>
+    <LatestNews/>
+    <Footer/>
     </>
   )
 }
