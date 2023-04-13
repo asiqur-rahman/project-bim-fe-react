@@ -41,6 +41,7 @@ jobs:
           server: sustainability.com.bd
           username: website@sustainability.com.bd
           password: ${{ secrets.FTP_PASS_BTS }}
+          ARGS: --transfer-all
           exclude: |
             **/.git*
             **/.git*/**
