@@ -25,7 +25,7 @@ function HomePage() {
     <Banner/>
     <Academic/>
     <CampusInformation/>
-    <Course/>
+    <Course page="home-page"/>
     <Admission/>
     <Events/>
     <LatestNews/>

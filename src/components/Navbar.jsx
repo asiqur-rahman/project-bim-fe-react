@@ -52,7 +52,42 @@ function Navbar() {
                                                         </li>
                                                     )
                                                 })}
-                                                
+                                                {item.breadcrumb=="study" && 
+                                                <>
+                                                    <li className="nav-item">
+                                                        <Link to={`/${item.breadcrumb}/training-courses`} className="nav-link">Training Courses</Link>
+                                                    </li>
+                                                    <li className="nav-item">
+                                                        <Link to={`/${item.breadcrumb}/certificate-courses`} className="nav-link">Cerificate Courses</Link>
+                                                    </li>
+                                                    <li className="nav-item">
+                                                        <Link to={`/${item.breadcrumb}/diploma-courses`} className="nav-link">Diploma Courses</Link>
+                                                    </li>
+                                                    <li className="nav-item">
+                                                        <Link to={`/${item.breadcrumb}/pgd-courses`} className="nav-link">PGD Courses</Link>
+                                                    </li>
+                                                </>}
+                                                {item.breadcrumb=="events" && 
+                                                <>
+                                                    <li className="nav-item">
+                                                        <Link to={`/${item.breadcrumb}/tranings`} className="nav-link">Trainings</Link>
+                                                    </li>
+                                                    <li className="nav-item">
+                                                        <Link to={`/${item.breadcrumb}/workshops`} className="nav-link">Workshops</Link>
+                                                    </li>
+                                                    <li className="nav-item">
+                                                        <Link to={`/${item.breadcrumb}/collaboration`} className="nav-link">Collaboration</Link>
+                                                    </li>
+                                                </>}
+                                                {item.breadcrumb=="news-blogs" && 
+                                                <>
+                                                    <li className="nav-item">
+                                                        <Link to={`/${item.breadcrumb}/latest-news`} className="nav-link">Latest News</Link>
+                                                    </li>
+                                                    <li className="nav-item">
+                                                        <Link to={`/${item.breadcrumb}/blog`} className="nav-link">Blog</Link>
+                                                    </li>
+                                                </>}
                                             </ul>
                                         </li>
                                     )
