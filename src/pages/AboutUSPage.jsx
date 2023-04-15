@@ -8,7 +8,7 @@ import Footer from '../components/Footer'
 
 function AboutUSPage() {
   const { page } = useParams();
-  
+
   useEffect(() => {
     AOS.init();
   }, []);
@@ -18,7 +18,7 @@ function AboutUSPage() {
     <TopHeader/>
     {/* <Spinner/> */}
     <Navbar/>
-    <AboutUS/>
+    <AboutUS page={page}/>
     <Footer/>
     </>
   )

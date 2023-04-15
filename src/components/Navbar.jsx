@@ -48,7 +48,7 @@ function Navbar() {
                                                 {item.pages.map((page,j)=>{
                                                     return(
                                                         <li className="nav-item" key={j}>
-                                                            <Link to={`${item.breadcrumb}/${page.breadcrumb}`} className="nav-link">{page.name}</Link>
+                                                            <Link to={`/${item.breadcrumb}/${page.breadcrumb}`} className="nav-link">{page.name}</Link>
                                                         </li>
                                                     )
                                                 })}
