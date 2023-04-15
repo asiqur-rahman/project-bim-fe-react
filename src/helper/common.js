@@ -1,4 +1,4 @@
-const CryptoJS = require("crypto-js");
+import CryptoJS from "crypto-js";
 import {
     SESSION_NAME
   } from './constant';

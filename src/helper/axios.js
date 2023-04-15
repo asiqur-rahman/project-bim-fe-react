@@ -1,85 +1,87 @@
 
 import axios from 'axios';
-import {getToken,getRefreshToken} from './common';
+import {getToken} from './common';
 import {
-  HTTP_STATUS_TOKEN_EXPIRE,
-  HTTP_STATUS_BAD_REQUEST,
-  HTTP_STATUS_CONFLICT,
-  HTTP_STATUS_INTERNAL_SERVER,
-  HTTP_STATUS_OK,
-  HTTP_STATUS_NOT_FOUND,
-  BASE_URL
+  BASE_URL,
+  BASE_TOKEN
 } from './constant';
-const UUID = require('uuid-int');
-
-const generator = UUID(511);
-
-const getErrorText = (status) => {
-  switch (status) {
-    case 400:
-      return HTTP_STATUS_BAD_REQUEST;
-    case 401:
-      return HTTP_STATUS_TOKEN_EXPIRE;
-    case 404:
-      return HTTP_STATUS_NOT_FOUND;
-    case 409:
-      return HTTP_STATUS_CONFLICT;
-    case 500:
-      return HTTP_STATUS_INTERNAL_SERVER;
-    default:
-      return '';
-  }
-};
 
 let instance = axios.create({
-  baseURL: BASE_URL+"/api",
+  baseURL: BASE_URL,
 })
 
 // request header
-instance.interceptors.request.use(
-  (config) => {
-    const token=getToken();
-    config.headers = {"Access-Control-Allow-Origin": "*"}
-    if(token)config.headers = {"Authorization": `Bearer ${token}`}
-    return config;
-  },
-  async (error) => {
-    return Promise.reject(error);
+instance.interceptors.request.use((config) => {
+  const token = getToken();
+  if(token){
+    config.headers = { 'Authorization': 'Bearer ' +  token}
   }
-);
+  return config;
+}, error => {
+  return Promise.reject(error);
+})
 
-  
 // response parse
 instance.interceptors.response.use(
-  (response) => {
-    const apiResponse = {
-      data: response.data,
-      status: response.status,
-      statusText: HTTP_STATUS_OK,
-      headers: response.headers,
-      config: response.config,
-      message: response.data?.message,
-      success: true
-    };
-    return apiResponse;
-  },
-
-  (error) => {
-    if (error &&
-      error?.response &&
-      error?.response?.status === 401) {
-      getRefreshToken();
+    (response) => {
+        return response
+    }, 
+    (error) => {
+    console.warn('Error status ::', error.response?.status)
+    console.log(error.response?.status);
+    if(!error.response){
+        return new Promise((resolve,reject)=>{
+            reject(error)
+        });
     }
-    const apiError = {
-      data: null,
-      status: error.status,
-      statusText: getErrorText((error?.status) ?? 500),
-      headers: error.headers,
-      config: error.config,
-      message: error.data?.message,
-      success: false
-    };
-    return apiError;
-});
+    else if(error.response.status===401){
+        auth_helper.removeSession();
+        window.location='/login';
+    }
+    else{
+        return new Promise((resolve,reject)=>{
+            reject(error)
+        });
+    }
+})
 
 export default instance;
+
+let web = axios.create({
+  baseURL: BASE_URL,
+})
+
+
+// request header
+web.interceptors.request.use((config) => {
+  config.headers = { 'Authorization': 'Bearer ' +  BASE_TOKEN}
+  return config;
+}, error => {
+  return Promise.reject(error);
+})
+
+// response parse
+web.interceptors.response.use(
+    (response) => {
+        return response
+    }, 
+    (error) => {
+    console.warn('Error status ::', error.response?.status)
+    console.log(error.response?.status);
+    if(!error.response){
+        return new Promise((resolve,reject)=>{
+            reject(error)
+        });
+    }
+    else if(error.response.status===401){
+        auth_helper.removeSession();
+        window.location='/login';
+    }
+    else{
+        return new Promise((resolve,reject)=>{
+            reject(error)
+        });
+    }
+})
+
+export {web};
