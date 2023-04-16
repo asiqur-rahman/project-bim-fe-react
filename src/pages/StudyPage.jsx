@@ -15,7 +15,7 @@ function StudyPage() {
   return (
     <>
     <TopHeader/>
-    {/* <Spinner/> */}
+    <Spinner/>
     <Navbar/>
     <Course page={page}/>
     <Footer/>

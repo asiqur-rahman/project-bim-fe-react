@@ -4,6 +4,7 @@ function Course(props) {
      
     const RenderCourse = () =>{
         useEffect(() => {
+            window.SpinnerHide();
             AOS.init();
         }, []);
         return (
