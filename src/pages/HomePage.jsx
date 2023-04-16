@@ -14,12 +14,13 @@ import Footer from '../components/Footer'
 function HomePage() {
 
   useEffect(() => {
+    window.SpinnerHide();
     AOS.init();
   }, []);
 
   return (
     <>
-    {/* <Spinner/> */}
+    <Spinner/>
     <TopHeader/>
     <Navbar/>
     <Banner/>
@@ -28,7 +29,7 @@ function HomePage() {
     <Course page="home-page"/>
     <Admission/>
     <Events/>
-    <LatestNews/>
+    <LatestNews page="home-page"/>
     <Footer/>
     </>
   )

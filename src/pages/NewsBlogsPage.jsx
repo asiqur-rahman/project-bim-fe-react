@@ -2,26 +2,24 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import TopHeader from '../components/TopHeader'
 import Spinner from '../components/Spinner'
-import AboutUS from '../components/AboutUS'
+import Blogs from '../components/Blogs'
+import LatestNews from '../components/LatestNews'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-function AboutUSPage() {
+function NewsBlogsPage() {
   const { page } = useParams();
-
-  useEffect(() => {
-    AOS.init();
-  }, []);
 
   return (
     <>
     <TopHeader/>
     <Spinner/>
     <Navbar/>
-    <AboutUS page={page}/>
+    <LatestNews page={page}/>
+    <Blogs page={page}/>
     <Footer/>
     </>
   )
 }
 
-export default AboutUSPage
+export default NewsBlogsPage

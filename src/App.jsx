@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage  from './pages/HomePage'
 import AboutUSPage  from './pages/AboutUSPage'
 import StudyPage  from './pages/StudyPage'
+import NewsBlogsPage  from './pages/NewsBlogsPage'
 
 function App() {
 
@@ -27,7 +28,7 @@ function App() {
           <Route path="/events/:page" element={<HomePage />} />
         </Routes>
         <Routes>
-          <Route path="/news-blog/:page" element={<HomePage />} />
+          <Route path="/news-blogs/:page" element={<NewsBlogsPage />} />
         </Routes>
         <Routes>
           <Route path="/registration/:page" element={<HomePage />} />

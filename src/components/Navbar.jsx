@@ -1,98 +1,132 @@
-import React ,{useState,useEffect} from "react"
-import {Link} from "react-router-dom";
+import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom";
 import Logo from '/images/logo.png'
-import Axios, {web as AxiosWeb} from '../helper/axios'
+import Axios, { web as AxiosWeb } from '../helper/axios'
 
-function Navbar() {
-    const [menu,setMenu]=useState(false);
-    useEffect(()=>{
-        AxiosWeb.get("/menuHead/menu")
-        .then(result=>{
-            if(result.data.status==200)
-                setMenu(result.data.data)
-        })
-    },[])
+const StudyFixedMenu = ({ item }) => {
     return (
         <>
-        <div className="navbar-area">
-            <div className="mobile-responsive-nav">
-                <div className="container">
-                    <div className="mobile-responsive-menu">
-                        <div className="logo">
-                            <a href="index">
-                                <img style={{height:"52px"}} src={Logo} className="main-logo" alt="logo"/>
-                                <img style={{height:"52px"}} src={Logo} className="white-logo" alt="logo"/>
-                            </a>
+            {item.breadcrumb == "study" &&
+                <>
+                    <li className="nav-item">
+                        <Link to={`/${item.breadcrumb}/training-courses`} className="nav-link">Training Courses</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to={`/${item.breadcrumb}/certificate-courses`} className="nav-link">Cerificate Courses</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to={`/${item.breadcrumb}/diploma-courses`} className="nav-link">Diploma Courses</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to={`/${item.breadcrumb}/pgd-courses`} className="nav-link">PGD Courses</Link>
+                    </li>
+                </>}
+        </>
+    )
+}
+
+const EventsFixedMonu = ({ item }) => {
+    return (<>
+        {item.breadcrumb == "events" &&
+            <>
+                <li className="nav-item">
+                    <Link to={`/${item.breadcrumb}/tranings`} className="nav-link">Trainings</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to={`/${item.breadcrumb}/workshops`} className="nav-link">Workshops</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to={`/${item.breadcrumb}/collaboration`} className="nav-link">Collaboration</Link>
+                </li>
+            </>}
+    </>)
+}
+
+const NewsBlogFixedMonu = ({ item }) => {
+    return (<>
+        {item.breadcrumb == "news-blogs" &&
+            <>
+                <li className="nav-item">
+                    <Link to={`/${item.breadcrumb}/latest-news`} className="nav-link">Latest News</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to={`/${item.breadcrumb}/blog`} className="nav-link">Blog</Link>
+                </li>
+            </>}
+    </>)
+}
+
+const ResearchFixedMonu = ({ item }) => {
+    return (<>
+        {item.breadcrumb == "research" &&
+            <>
+                <li className="nav-item">
+                    <Link to={`/${item.breadcrumb}/research-courses`} className="nav-link">Research Courses</Link>
+                </li>
+            </>}
+    </>)
+}
+
+
+function Navbar() {
+    const [menu, setMenu] = useState(false);
+    useEffect(() => {
+        AxiosWeb.get("/menuHead/menu")
+            .then(result => {
+                if (result.data.status == 200)
+                    setMenu(result.data.data)
+            })
+    }, [])
+    return (
+        <>
+            <div className="navbar-area">
+                <div className="mobile-responsive-nav">
+                    <div className="container">
+                        <div className="mobile-responsive-menu">
+                            <div className="logo">
+                                <a href="index">
+                                    <img style={{ height: "52px" }} src={Logo} className="main-logo" alt="logo" />
+                                    <img style={{ height: "52px" }} src={Logo} className="white-logo" alt="logo" />
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="desktop-nav">
-                <div className="container-fluid">
-                    <nav className="navbar navbar-expand-md navbar-light">
-                        <a className="navbar-brand" href="index">
-                            <img style={{height:"52px"}} src={Logo} alt="logo"/>
-                        </a>
-                        <div className="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                            <ul className="navbar-nav ms-auto">
-                                <li className="nav-item">
-                                    <Link to="/" className="nav-link">Home</Link>
-                                </li>
-                                {menu && menu.map((item,i)=>{
-                                    return (
-                                        <li className="nav-item" key={i}>
-                                            <a href="#" className="nav-link dropdown-toggle">
-                                                {item.name}
-                                            </a>
-                                            <ul className="dropdown-menu">
-                                                {item.pages.map((page,j)=>{
-                                                    return(
-                                                        <li className="nav-item" key={j}>
-                                                            <Link to={`/${item.breadcrumb}/${page.breadcrumb}`} className="nav-link">{page.name}</Link>
-                                                        </li>
-                                                    )
-                                                })}
-                                                {item.breadcrumb=="study" && 
-                                                <>
-                                                    <li className="nav-item">
-                                                        <Link to={`/${item.breadcrumb}/training-courses`} className="nav-link">Training Courses</Link>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <Link to={`/${item.breadcrumb}/certificate-courses`} className="nav-link">Cerificate Courses</Link>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <Link to={`/${item.breadcrumb}/diploma-courses`} className="nav-link">Diploma Courses</Link>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <Link to={`/${item.breadcrumb}/pgd-courses`} className="nav-link">PGD Courses</Link>
-                                                    </li>
-                                                </>}
-                                                {item.breadcrumb=="events" && 
-                                                <>
-                                                    <li className="nav-item">
-                                                        <Link to={`/${item.breadcrumb}/tranings`} className="nav-link">Trainings</Link>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <Link to={`/${item.breadcrumb}/workshops`} className="nav-link">Workshops</Link>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <Link to={`/${item.breadcrumb}/collaboration`} className="nav-link">Collaboration</Link>
-                                                    </li>
-                                                </>}
-                                                {item.breadcrumb=="news-blogs" && 
-                                                <>
-                                                    <li className="nav-item">
-                                                        <Link to={`/${item.breadcrumb}/latest-news`} className="nav-link">Latest News</Link>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <Link to={`/${item.breadcrumb}/blog`} className="nav-link">Blog</Link>
-                                                    </li>
-                                                </>}
-                                            </ul>
-                                        </li>
-                                    )
-                                })}
-                                {/* <li className="nav-item">
+                <div className="desktop-nav">
+                    <div className="container-fluid">
+                        <nav className="navbar navbar-expand-md navbar-light">
+                            <a className="navbar-brand" href="index">
+                                <img style={{ height: "52px" }} src={Logo} alt="logo" />
+                            </a>
+                            <div className="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                                <ul className="navbar-nav ms-auto">
+                                    <li className="nav-item">
+                                        <Link to="/" className="nav-link">Home</Link>
+                                    </li>
+                                    {menu && menu.map((item, i) => {
+                                        return (
+                                            <li className="nav-item" key={i}>
+                                                <a href="#" className="nav-link dropdown-toggle">
+                                                    {item.name}
+                                                </a>
+                                                <ul className="dropdown-menu">
+                                                    <StudyFixedMenu item={item} />
+                                                    <EventsFixedMonu item={item} />
+                                                    <NewsBlogFixedMonu item={item} />
+                                                    <ResearchFixedMonu item={item} />
+
+                                                    {item.pages.map((page, j) => {
+                                                        return (
+                                                            <li className="nav-item" key={j}>
+                                                                <Link to={`/${item.breadcrumb}/${page.breadcrumb}`} className="nav-link">{page.name}</Link>
+                                                            </li>
+                                                        )
+                                                    })}
+                                                </ul>
+                                            </li>
+                                        )
+                                    })}
+                                    {/* <li className="nav-item">
                                     <a href="#" className="nav-link dropdown-toggle">
                                         About Us
                                     </a>
@@ -212,34 +246,34 @@ function Navbar() {
                                     </ul>
                                 </li> */}
 
-                                <li>
-                                    <a href="login" className="default-btn btn">My Account</a>
-                                </li>
+                                    <li>
+                                        <a href="login" className="default-btn btn">My Account</a>
+                                    </li>
 
-                            </ul>
-                            <div className="others-options">
+                                </ul>
+                                <div className="others-options">
+                                    <div className="icon">
+                                        <i className="ri-menu-3-fill" data-bs-toggle="modal" data-bs-target="#sidebarModal"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div className="others-option-for-responsive">
+                    <div className="container">
+                        <div className="dot-menu">
+                            <div className="inner">
                                 <div className="icon">
                                     <i className="ri-menu-3-fill" data-bs-toggle="modal" data-bs-target="#sidebarModal"></i>
                                 </div>
                             </div>
                         </div>
-                    </nav>
-                </div>
-            </div>
-            <div className="others-option-for-responsive">
-                <div className="container">
-                    <div className="dot-menu">
-                        <div className="inner">
-                            <div className="icon">
-                                <i className="ri-menu-3-fill" data-bs-toggle="modal" data-bs-target="#sidebarModal"></i>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </>
-  )
+    )
 }
 
 export default Navbar

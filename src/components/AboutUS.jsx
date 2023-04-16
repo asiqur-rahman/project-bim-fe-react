@@ -10,6 +10,7 @@ function AboutUS(props) {
           AxiosWeb.get(`/page/breadcrumb/${props.page}`)
           .then(result=>{
               if(result.data.status==200){
+                window.SpinnerHide();
                 setPageDetails(result.data.data)
               }
           })
