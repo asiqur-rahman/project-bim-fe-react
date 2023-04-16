@@ -11,7 +11,7 @@ function Events(props) {
         return (
             <>
                 {props.page && props.page == "trainings" && <>
-                    <div className="page-banner-area bg-1">
+                    <div className="page-banner-area bg-2">
                         <div className="container">
                             <div className="page-banner-content">
                                 <h1>Trainings</h1>
@@ -22,62 +22,53 @@ function Events(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="courses-area ptb-100 bg-f4f6f9">
+
+
+                    <div className="events-area pt-70 pb-70">
                         <div className="container">
                             <div className="row justify-content-center">
-
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="training-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
+                                <div className="col-lg-4 col-md-6">
+                                    <div className="single-events-card style-4">
+                                        <div className="events-image">
+                                            <a href="events-details.html"><img src="/images/events/events-3.jpg" alt="Image" /></a>
+                                            <div className="date">
+                                                <span>18</span>
+                                                <p>Mar 2023</p>
+                                            </div>
                                         </div>
-                                        <div className="courses-content">
-                                            <a href="training-courses.html"><h3>Training Courses</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="certificate-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="courses-content">
-                                            <a href="certificate-courses.html"><h3>Certificate Courses</h3></a>
+                                        <div className="events-content">
+                                            <a href="events-details.html"><h3>Inauguration of 3rd Batch of “Sustainability Management” training program</h3></a>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="diploma-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
+                                <div className="col-lg-4 col-md-6">
+                                    <div className="single-events-card style-4">
+                                        <div className="events-image">
+                                            <a href="events-details.html"><img src="/images/events/events-2.jpg" alt="Image" /></a>
+                                            <div className="date">
+                                                <span>17</span>
+                                                <p>Mar 2023</p>
+                                            </div>
                                         </div>
-                                        <div className="courses-content">
-                                            <a href="diploma-courses.html"><h3>Diploma Courses</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="pgd-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="courses-content">
-                                            <a href="pgd-courses.html"><h3>PGD Courses</h3></a>
+                                        <div className="events-content">
+                                            <a href="events-details.html"><h3>Inauguration of 2nd Batch of “Sustainability Management” training program</h3></a>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="research-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
+                                <div className="col-lg-4 col-md-6">
+                                    <div className="single-events-card style-4">
+                                        <div className="events-image">
+                                            <a href="events-details.html"><img src="/images/events/events-1.jpg" alt="Image" /></a>
+                                            <div className="date">
+                                                <span>17</span>
+                                                <p>Mar 2023</p>
+                                            </div>
                                         </div>
-                                        <div className="courses-content">
-                                            <a href="research-courses.html"><h3>Research Courses</h3></a>
+                                        <div className="events-content">
+                                            <a href="events-details.html"><h3>Inauguration of the First Batch of “Sustainability Management” training program</h3></a>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

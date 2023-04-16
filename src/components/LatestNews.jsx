@@ -27,7 +27,7 @@ function LatestNews(props) {
                             <div className="row">
                                 <div className="col-lg-8">
                                     <div className="latest-news-left-content pr-20">
-                                        <div style={{ backgroundImage: "url(assets/images/events/events-3.jpg" }} className="latest-news-simple-card">
+                                        <div style={{ backgroundImage: "url(/images/events/events-3.jpg" }} className="latest-news-simple-card">
                                             <div className="news-content">
                                                 <div className="list">
                                                     <ul>
@@ -38,7 +38,7 @@ function LatestNews(props) {
                                                 <a href="news-details.html" className="read-more-btn active">Read More<i className="flaticon-next"></i></a>
                                             </div>
                                         </div>
-                                        <div style={{ backgroundImage: "url(assets/images/events/events-2.jpg" }} className="latest-news-simple-card">
+                                        <div style={{ backgroundImage: "url(/images/events/events-2.jpg" }} className="latest-news-simple-card">
                                             <div className="news-content">
                                                 <div className="list">
                                                     <ul>
@@ -49,7 +49,7 @@ function LatestNews(props) {
                                                 <a href="news-details.html" className="read-more-btn active">Read More<i className="flaticon-next"></i></a>
                                             </div>
                                         </div>
-                                        <div style={{ backgroundImage: "url(assets/images/events/events-1.jpg" }} className="latest-news-simple-card">
+                                        <div style={{ backgroundImage: "url(/images/events/events-1.jpg" }} className="latest-news-simple-card">
                                             <div className="news-content">
                                                 <div className="list">
                                                     <ul>
@@ -78,19 +78,19 @@ function LatestNews(props) {
                                         <h3>Recent Post</h3>
                                         <div className="related-post-box">
                                             <div className="related-post-content">
-                                                <a href="latest-news.html"><img src="assets/images/events/events-3.jpg" alt="Image" /></a>
+                                                <a href="latest-news.html"><img src="/images/events/events-3.jpg" alt="Image" /></a>
                                                 <h4><a href="latest-news.html">Inauguration of 3rd Batch of “Sustainability Management” training program</a></h4>
                                             </div>
                                         </div>
                                         <div className="related-post-box">
                                             <div className="related-post-content">
-                                                <a href="latest-news.html"><img src="assets/images/events/events-2.jpg" alt="Image" /></a>
+                                                <a href="latest-news.html"><img src="/images/events/events-2.jpg" alt="Image" /></a>
                                                 <h4><a href="latest-news.html">Inauguration of 2nd Batch of “Sustainability Management” training program</a></h4>
                                             </div>
                                         </div>
                                         <div className="related-post-box">
                                             <div className="related-post-content">
-                                                <a href="latest-news.html"><img src="assets/images/events/events-1.jpg" alt="Image" /></a>
+                                                <a href="latest-news.html"><img src="/images/events/events-1.jpg" alt="Image" /></a>
                                                 <h4><a href="latest-news.html">Inauguration of the First Batch of “Sustainability Management” training program</a></h4>
                                             </div>
                                         </div>

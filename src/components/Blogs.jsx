@@ -33,7 +33,7 @@ function Blogs(props) {
                                                 <div className="col-lg-6 col-md-6">
                                                     <div className="single-news-card">
                                                         <div className="news-img">
-                                                            <a href="news-details.html"><img src="/assets/images/news/news-2.jpg" alt="Image" /></a>
+                                                            <a href="news-details.html"><img src="/images/news/news-2.jpg" alt="Image" /></a>
                                                         </div>
                                                         <div className="news-content">
                                                             <div className="list">
@@ -50,7 +50,7 @@ function Blogs(props) {
                                                 <div className="col-lg-6 col-md-6">
                                                     <div className="single-news-card">
                                                         <div className="news-img">
-                                                            <a href="news-details.html"><img src="assets/images/news/news-3.jpg" alt="Image" /></a>
+                                                            <a href="news-details.html"><img src="/images/news/news-3.jpg" alt="Image" /></a>
                                                         </div>
                                                         <div className="news-content">
                                                             <div className="list">
@@ -67,7 +67,7 @@ function Blogs(props) {
                                                 <div className="col-lg-6 col-md-6">
                                                     <div className="single-news-card">
                                                         <div className="news-img">
-                                                            <a href="news-details.html"><img src="assets/images/news/news-6.jpg" alt="Image" /></a>
+                                                            <a href="news-details.html"><img src="/images/news/news-6.jpg" alt="Image" /></a>
                                                         </div>
                                                         <div className="news-content">
                                                             <div className="list">
@@ -84,7 +84,7 @@ function Blogs(props) {
                                                 <div className="col-lg-6 col-md-6">
                                                     <div className="single-news-card">
                                                         <div className="news-img">
-                                                            <a href="news-details.html"><img src="assets/images/news/news-7.jpg" alt="Image" /></a>
+                                                            <a href="news-details.html"><img src="/images/news/news-7.jpg" alt="Image" /></a>
                                                         </div>
                                                         <div className="news-content">
                                                             <div className="list">
@@ -145,21 +145,21 @@ function Blogs(props) {
                                         <h3>Related Post</h3>
                                         <div className="related-post-box">
                                             <div className="related-post-content">
-                                                <a href="latest-news.html"><img src="assets/images/news/news-2.jpg" alt="Image" /></a>
+                                                <a href="latest-news.html"><img src="/images/news/news-2.jpg" alt="Image" /></a>
                                                 <h4><a href="latest-news.html">Professor Tom comments on the volunteer B. Snack brand</a></h4>
                                                 <p><i className="flaticon-tag"></i> Social Sciences</p>
                                             </div>
                                         </div>
                                         <div className="related-post-box">
                                             <div className="related-post-content">
-                                                <a href="latest-news.html"><img src="assets/images/news/news-3.jpg" alt="Image" /></a>
+                                                <a href="latest-news.html"><img src="/images/news/news-3.jpg" alt="Image" /></a>
                                                 <h4><a href="latest-news.html">Making a meaningful difference in patients’ lives.</a></h4>
                                                 <p><i className="flaticon-tag"></i> Social Sciences</p>
                                             </div>
                                         </div>
                                         <div className="related-post-box">
                                             <div className="related-post-content">
-                                                <a href="latest-news.html"><img src="assets/images/news/news-1.jpg" alt="Image" /></a>
+                                                <a href="latest-news.html"><img src="/images/news/news-1.jpg" alt="Image" /></a>
                                                 <h4><a href="latest-news.html">Happiness begins with good health</a></h4>
                                                 <p><i className="flaticon-tag"></i> Social Sciences</p>
                                             </div>
