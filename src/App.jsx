@@ -3,6 +3,7 @@ import HomePage  from './pages/HomePage'
 import AboutUSPage  from './pages/AboutUSPage'
 import StudyPage  from './pages/StudyPage'
 import NewsBlogsPage  from './pages/NewsBlogsPage'
+import EventsPage  from './pages/EventsPage'
 
 function App() {
 
@@ -19,13 +20,13 @@ function App() {
           <Route path="/study/:page" element={<StudyPage />} />
         </Routes>
         <Routes>
-          <Route path="/research/:page" element={<HomePage />} />
+          <Route path="/research/:page" element={<StudyPage />} />
         </Routes>
         <Routes>
           <Route path="/stories/:page" element={<HomePage />} />
         </Routes>
         <Routes>
-          <Route path="/events/:page" element={<HomePage />} />
+          <Route path="/events/:page" element={<EventsPage />} />
         </Routes>
         <Routes>
           <Route path="/news-blogs/:page" element={<NewsBlogsPage />} />

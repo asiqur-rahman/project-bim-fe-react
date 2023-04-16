@@ -2,11 +2,11 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import TopHeader from '../components/TopHeader'
 import Spinner from '../components/Spinner'
-import Course from '../components/Course'
+import Events from '../components/Events'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-function StudyPage() {
+function EventsPage() {
   const { page } = useParams();
 
   return (
@@ -14,10 +14,10 @@ function StudyPage() {
     <TopHeader/>
     <Spinner/>
     <Navbar/>
-    <Course page={page}/>
+    <Events page={page}/>
     <Footer/>
     </>
   )
 }
 
-export default StudyPage
+export default EventsPage

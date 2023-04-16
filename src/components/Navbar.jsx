@@ -30,7 +30,7 @@ const EventsFixedMonu = ({ item }) => {
         {item.breadcrumb == "events" &&
             <>
                 <li className="nav-item">
-                    <Link to={`/${item.breadcrumb}/tranings`} className="nav-link">Trainings</Link>
+                    <Link to={`/${item.breadcrumb}/trainings`} className="nav-link">Trainings</Link>
                 </li>
                 <li className="nav-item">
                     <Link to={`/${item.breadcrumb}/workshops`} className="nav-link">Workshops</Link>

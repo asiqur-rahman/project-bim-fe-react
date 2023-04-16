@@ -28,7 +28,7 @@ function HomePage() {
     <CampusInformation/>
     <Course page="home-page"/>
     <Admission/>
-    <Events/>
+    <Events page="home-page"/>
     <LatestNews page="home-page"/>
     <Footer/>
     </>
