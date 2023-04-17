@@ -4,6 +4,7 @@ import AboutUSPage  from './pages/AboutUSPage'
 import StudyPage  from './pages/StudyPage'
 import NewsBlogsPage  from './pages/NewsBlogsPage'
 import EventsPage  from './pages/EventsPage'
+import CourseDetailsPage  from './pages/CourseDetailsPage'
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/registration/:page" element={<HomePage />} />
+        </Routes>
+        <Routes>
+          <Route path="/course-details/:id" element={<CourseDetailsPage />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -34,6 +34,11 @@ function AboutUS(props) {
         <div className="campus-information-area pt-70 pb-70">
         <div className="container">
             <div className="row align-items-center">
+                {pageDetails && pageDetails.files.length>0 &&
+                <div class="events-image">
+                    <img src={pageDetails.files[0].link} alt="Image" loading='lazy'/>
+                </div>
+                }
                 <div className="col-lg-12" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
                     <div className="campus-content pr-20">
                         <div className="campus-title">
