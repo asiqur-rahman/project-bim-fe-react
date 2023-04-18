@@ -7,14 +7,14 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 function CoursePage() {
-  const { page } = useParams();
+  const { id } = useParams();
 
   return (
     <>
     <TopHeader/>
     <Spinner/>
     <Navbar/>
-    <Course page={page}/>
+    <Course id={id}/>
     <Footer/>
     </>
   )
