@@ -6,19 +6,19 @@ import Axios, { web as AxiosWeb } from '../helper/axios'
 const StudyFixedMenu = ({ item }) => {
     return (
         <>
-            {item.breadcrumb == "study" &&
+            {item.menuBreadcrumb == "study" &&
                 <>
                     <li className="nav-item">
-                        <Link to={`/${item.breadcrumb}/training-courses`} className="nav-link">Training Courses</Link>
+                        <Link to={`/${item.menuBreadcrumb}/training-courses`} className="nav-link">Training Courses</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={`/${item.breadcrumb}/certificate-courses`} className="nav-link">Cerificate Courses</Link>
+                        <Link to={`/${item.menuBreadcrumb}/certificate-courses`} className="nav-link">Cerificate Courses</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={`/${item.breadcrumb}/diploma-courses`} className="nav-link">Diploma Courses</Link>
+                        <Link to={`/${item.menuBreadcrumb}/diploma-courses`} className="nav-link">Diploma Courses</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={`/${item.breadcrumb}/pgd-courses`} className="nav-link">PGD Courses</Link>
+                        <Link to={`/${item.menuBreadcrumb}/pgd-courses`} className="nav-link">PGD Courses</Link>
                     </li>
                 </>}
         </>
@@ -27,16 +27,16 @@ const StudyFixedMenu = ({ item }) => {
 
 const EventsFixedMonu = ({ item }) => {
     return (<>
-        {item.breadcrumb == "events" &&
+        {item.menuBreadcrumb == "events" &&
             <>
                 <li className="nav-item">
-                    <Link to={`/${item.breadcrumb}/trainings`} className="nav-link">Trainings</Link>
+                    <Link to={`/${item.menuBreadcrumb}/trainings`} className="nav-link">Trainings</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to={`/${item.breadcrumb}/workshops`} className="nav-link">Workshops</Link>
+                    <Link to={`/${item.menuBreadcrumb}/workshops`} className="nav-link">Workshops</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to={`/${item.breadcrumb}/collaboration`} className="nav-link">Collaboration</Link>
+                    <Link to={`/${item.menuBreadcrumb}/collaboration`} className="nav-link">Collaboration</Link>
                 </li>
             </>}
     </>)
@@ -44,13 +44,13 @@ const EventsFixedMonu = ({ item }) => {
 
 const NewsBlogFixedMonu = ({ item }) => {
     return (<>
-        {item.breadcrumb == "news-blogs" &&
+        {item.menuBreadcrumb == "news-blogs" &&
             <>
                 <li className="nav-item">
-                    <Link to={`/${item.breadcrumb}/latest-news`} className="nav-link">Latest News</Link>
+                    <Link to={`/${item.menuBreadcrumb}/latest-news`} className="nav-link">Latest News</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to={`/${item.breadcrumb}/blog`} className="nav-link">Blog</Link>
+                    <Link to={`/${item.menuBreadcrumb}/blog`} className="nav-link">Blog</Link>
                 </li>
             </>}
     </>)
@@ -58,10 +58,10 @@ const NewsBlogFixedMonu = ({ item }) => {
 
 const ResearchFixedMonu = ({ item }) => {
     return (<>
-        {item.breadcrumb == "research" &&
+        {item.menuBreadcrumb == "research" &&
             <>
                 <li className="nav-item">
-                    <Link to={`/${item.breadcrumb}/research-courses`} className="nav-link">Research Courses</Link>
+                    <Link to={`/${item.menuBreadcrumb}/research-courses`} className="nav-link">Research Courses</Link>
                 </li>
             </>}
     </>)
@@ -107,7 +107,7 @@ function Navbar() {
                                         return (
                                             <li className="nav-item" key={i}>
                                                 <a href="#" className="nav-link dropdown-toggle">
-                                                    {item.name}
+                                                    {item.menuName}
                                                 </a>
                                                 <ul className="dropdown-menu">
                                                     <StudyFixedMenu item={item} />
@@ -118,7 +118,7 @@ function Navbar() {
                                                     {item.pages.map((page, j) => {
                                                         return (
                                                             <li className="nav-item" key={j}>
-                                                                <Link to={`/${item.breadcrumb}/${page.breadcrumb}`} className="nav-link">{page.name}</Link>
+                                                                <Link to={`/${item.menuBreadcrumb}/${page.pageBreadcrumb}`} className="nav-link">{page.name}</Link>
                                                             </li>
                                                         )
                                                     })}

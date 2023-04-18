@@ -31,7 +31,7 @@ function Banner() {
                     }}
                 >
                     {/* <div className="slider-item banner-bg-1"> */}
-                    <div className="slider-item">
+                    <div className="slider-item banner-bg-1">
                         <div className="container-fluid">
                             <div className="slider-content">
                                 <h1>Leadership in Sustainability</h1>
@@ -47,7 +47,7 @@ function Banner() {
                         backgroundImageSrc: "/images/banner/banner-2.jpg"
                     }}
                 >
-                    <div className="slider-item">
+                    <div className="slider-item banner-bg-2">
                         <div className="container-fluid">
                             <div className="slider-content">
                                 <h1>Sustainable Innovation</h1>
@@ -63,7 +63,7 @@ function Banner() {
                         backgroundImageSrc: "/images/banner/banner-3.jpg"
                     }}
                 >
-                    <div className="slider-item">
+                    <div className="slider-item banner-bg-3">
                         <div className="container-fluid">
                             <div className="slider-content">
                                 <h1>Success Stories</h1>
@@ -95,7 +95,7 @@ function Banner() {
                         backgroundImageSrc: "/images/banner/banner-5.jpg"
                     }}
                 >
-                    <div className="slider-item">
+                    <div className="slider-item banner-bg-5">
                         <div className="container-fluid">
                             <div className="slider-content">
                                 <h1>Trigger your potentials through training</h1>
@@ -111,7 +111,7 @@ function Banner() {
                         backgroundImageSrc: "/images/banner/banner-6.jpg"
                     }}
                 >
-                    <div className="slider-item">
+                    <div className="slider-item banner-bg-6">
                         <div className="container-fluid">
                             <div className="slider-content">
                                 <h1>Initiate a bright future with us</h1>
@@ -143,7 +143,7 @@ function Banner() {
                         backgroundImageSrc: "/images/banner/banner-8.jpg"
                     }}
                 >
-                    <div className="slider-item">
+                    <div className="slider-item banner-bg-8">
                         <div className="container-fluid">
                             <div className="slider-content">
                                 <h1>Enrich yourself</h1>
@@ -159,7 +159,7 @@ function Banner() {
                         backgroundImageSrc: "/images/banner/banner-9.jpg"
                     }}
                 >
-                    <div className="slider-item">
+                    <div className="slider-item banner-bg-9">
                         <div className="container-fluid">
                             <div className="slider-content">
                                 <h1>Engage in research</h1>
@@ -175,7 +175,7 @@ function Banner() {
                         backgroundImageSrc: "/images/banner/banner-10.jpg"
                     }}
                 >
-                    <div className="slider-item">
+                    <div className="slider-item banner-bg-10">
                         <div className="container-fluid">
                             <div className="slider-content">
                                 <h1>Become an ALUMNI of Sustainability Management Forum</h1>
