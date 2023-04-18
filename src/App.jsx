@@ -4,6 +4,7 @@ import AboutUSPage  from './pages/AboutUSPage'
 import StudyPage  from './pages/StudyPage'
 import NewsBlogsPage  from './pages/NewsBlogsPage'
 import EventsPage  from './pages/EventsPage'
+import CoursePage  from './pages/CoursePage'
 import CourseDetailsPage  from './pages/CourseDetailsPage'
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/study/:page" element={<StudyPage />} />
+        </Routes>
+        <Routes>
+          <Route path="/course/:id" element={<CoursePage />} />
         </Routes>
         <Routes>
           <Route path="/research/:page" element={<StudyPage />} />

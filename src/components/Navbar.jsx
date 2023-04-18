@@ -25,48 +25,6 @@ const StudyFixedMenu = ({ item }) => {
     )
 }
 
-const EventsFixedMonu = ({ item }) => {
-    return (<>
-        {item.menuBreadcrumb == "events" &&
-            <>
-                <li className="nav-item">
-                    <Link to={`/${item.menuBreadcrumb}/trainings`} className="nav-link">Trainings</Link>
-                </li>
-                <li className="nav-item">
-                    <Link to={`/${item.menuBreadcrumb}/workshops`} className="nav-link">Workshops</Link>
-                </li>
-                <li className="nav-item">
-                    <Link to={`/${item.menuBreadcrumb}/collaboration`} className="nav-link">Collaboration</Link>
-                </li>
-            </>}
-    </>)
-}
-
-const NewsBlogFixedMonu = ({ item }) => {
-    return (<>
-        {item.menuBreadcrumb == "news-blogs" &&
-            <>
-                <li className="nav-item">
-                    <Link to={`/${item.menuBreadcrumb}/latest-news`} className="nav-link">Latest News</Link>
-                </li>
-                <li className="nav-item">
-                    <Link to={`/${item.menuBreadcrumb}/blog`} className="nav-link">Blog</Link>
-                </li>
-            </>}
-    </>)
-}
-
-const ResearchFixedMonu = ({ item }) => {
-    return (<>
-        {item.menuBreadcrumb == "research" &&
-            <>
-                <li className="nav-item">
-                    <Link to={`/${item.menuBreadcrumb}/research-courses`} className="nav-link">Research Courses</Link>
-                </li>
-            </>}
-    </>)
-}
-
 
 function Navbar() {
     const [menu, setMenu] = useState(false);
@@ -110,10 +68,14 @@ function Navbar() {
                                                     {item.menuName}
                                                 </a>
                                                 <ul className="dropdown-menu">
-                                                    <StudyFixedMenu item={item} />
-                                                    <EventsFixedMonu item={item} />
-                                                    <NewsBlogFixedMonu item={item} />
-                                                    <ResearchFixedMonu item={item} />
+                                                    
+                                                    {item.courseTypes.map((page, j) => {
+                                                        return (
+                                                            <li className="nav-item" key={j}>
+                                                                <Link to={`/course/${page.id}`} className="nav-link">{page.courseTypeName}</Link>
+                                                            </li>
+                                                        )
+                                                    })}
 
                                                     {item.pages.map((page, j) => {
                                                         return (
@@ -122,6 +84,7 @@ function Navbar() {
                                                             </li>
                                                         )
                                                     })}
+
                                                 </ul>
                                             </li>
                                         )
