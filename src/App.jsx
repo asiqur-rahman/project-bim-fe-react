@@ -4,7 +4,7 @@ import AboutUSPage  from './pages/AboutUSPage'
 import StudyPage  from './pages/StudyPage'
 import NewsBlogsPage  from './pages/NewsBlogsPage'
 import EventsPage  from './pages/EventsPage'
-import CoursePage  from './pages/CoursePage'
+import CourseTypePage  from './pages/CourseTypePage'
 import CourseDetailsPage  from './pages/CourseDetailsPage'
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Route path="/study/:page" element={<StudyPage />} />
         </Routes>
         <Routes>
-          <Route path="/course/:id" element={<CoursePage />} />
+          <Route path="/course-type/:id" element={<CourseTypePage />} />
         </Routes>
         <Routes>
           <Route path="/research/:page" element={<StudyPage />} />

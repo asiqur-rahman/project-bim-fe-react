@@ -72,7 +72,7 @@ function Navbar() {
                                                     {item.courseTypes.map((page, j) => {
                                                         return (
                                                             <li className="nav-item" key={j}>
-                                                                <Link to={`/course/${page.id}`} className="nav-link">{page.courseTypeName}</Link>
+                                                                <Link to={`/course-type/${page.id}`} className="nav-link">{page.courseTypeName}</Link>
                                                             </li>
                                                         )
                                                     })}

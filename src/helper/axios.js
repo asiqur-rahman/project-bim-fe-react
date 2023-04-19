@@ -4,7 +4,7 @@ import {getToken} from './common';
 import {
   BASE_URL,
   BASE_TOKEN
-} from './constant';
+} from '../config';
 
 let instance = axios.create({
   baseURL: BASE_URL,

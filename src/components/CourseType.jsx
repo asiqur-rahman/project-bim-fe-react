@@ -1,12 +1,28 @@
 import { useEffect,useState } from 'react'
+import Axios, {web as AxiosWeb} from '../helper/axios'
 import { Link } from "react-router-dom";
 
 function Course(props) {
      
     const RenderCourse = () =>{
+
+        useEffect(()=>{
+            if(props.id){
+              AxiosWeb.get(`/courseType/details/${props.id}`)
+              .then(result=>{
+                  if(result.data.status==200){
+                    window.SpinnerHide();
+                    // setPageDetails(result.data.data)
+                  }
+              })
+            }
+            
+          },[props.id])
+
         useEffect(() => {
             AOS.init();
-            window.SpinnerHide();
+            // window.SpinnerHide();
+
         }, []);
         
         return (
