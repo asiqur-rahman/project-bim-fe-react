@@ -8,7 +8,7 @@ function Course(props) {
     const RenderCourse = () =>{
 
         useEffect(()=>{
-            if(props.id && !courseDetails){
+            if(props.id && courseDetails && courseDetails.id!=props.id){
               AxiosWeb.get(`/courseType/details/${props.id}`)
               .then(result=>{
                     if(result.data.status==200){
