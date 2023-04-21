@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 function CourseDetailsPage() {
-  const { page } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     AOS.init();
@@ -18,7 +18,7 @@ function CourseDetailsPage() {
     <TopHeader/>
     <Spinner/>
     <Navbar/>
-    <CourseDetails page={page}/>
+    <CourseDetails id={id}/>
     <Footer/>
     </>
   )
