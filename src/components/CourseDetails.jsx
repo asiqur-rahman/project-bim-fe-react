@@ -197,7 +197,7 @@ function CourseDetails(props) {
                                             </li>
                                             <li><span>Delivery Mode :</span>Blended Learning</li>
                                             <li>
-                                                <span>Fee per Person :</span>BDT 2,500/-
+                                                <span>Fee per Person :</span>BDT {details.courseFee}/-
                                                 <br />(excluding Tax and VAT)
                                             </li>
                                         </ul>
