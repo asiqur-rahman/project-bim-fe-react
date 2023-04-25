@@ -4,20 +4,30 @@ import { Link } from "react-router-dom";
 
 function Course(props) {
 
-    const [courseDetails, setCourseDetails]= useState(false);
+    const [courseTypeDetails, setCourseTypeDetails]= useState(false);
+    const [courseTypes, setCourseTypes]= useState(false);
     const RenderCourse = () =>{
 
         useEffect(()=>{
-            if(props.id && (!courseDetails || courseDetails.id!=props.id)){
+            if(props.id && (!courseTypeDetails || courseTypeDetails.id!=props.id)){
               AxiosWeb.get(`/courseType/details/${props.id}`)
               .then(result=>{
                     if(result.data.status==200){
-                        setCourseDetails(result.data.data);
+                        setCourseTypeDetails(result.data.data);
                         window.SpinnerHide();
                     }
               })
             }
-        },[props.id])
+            else if (props.page && props.page == "home-page"){
+                AxiosWeb.get(`/courseType/homePage`)
+              .then(result=>{
+                    if(result.data.status==200){
+                        setCourseTypes(result.data.data);
+                        window.SpinnerHide();
+                    }
+              })
+            }
+        },[props.id,props.page])
         
         useEffect(() => {
             AOS.init();
@@ -25,14 +35,14 @@ function Course(props) {
 
         return (
             <>
-            {courseDetails && <>
+            {courseTypeDetails && <>
                 <div className="page-banner-area bg-1">
                     <div className="container">
                         <div className="page-banner-content">
-                            <h1>{courseDetails.courseTypeName}</h1>
+                            <h1>{courseTypeDetails.courseTypeName}</h1>
                             <ul>
                                 <li><a href="#">Study</a></li>
-                                <li>{courseDetails.courseTypeName}</li>
+                                <li>{courseTypeDetails.courseTypeName}</li>
                             </ul>
                         </div>
                     </div>
@@ -41,7 +51,7 @@ function Course(props) {
                     <div className="container">
                         <div className="row justify-content-center">
 
-                            {courseDetails.courses.map((item,i)=>{
+                            {courseTypeDetails.courses.map((item,i)=>{
                                 return (
                                     <div key={i} className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
                                         <div className="single-courses-card">
@@ -133,7 +143,7 @@ function Course(props) {
 
     return (
         <>
-        {props.id && <RenderCourse/>} 
+        {(props.id || props.page) && <RenderCourse/>} 
         </>
         
     )

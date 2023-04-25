@@ -40,7 +40,7 @@ function CourseDetails(props) {
                             <div className="col-lg-7">
                                 <div className="courses-details">
                                     <div className="courses-card">
-                                        <h2>{details.courseName} <small style={{ fontSize: "15px" }}> (Code – {details.courseCode}’)</small></h2>
+                                        <h2>{details.courseName} <small style={{ fontSize: "15px" }}> (Code – ‘{details.courseCode}’)</small></h2>
 
                                         <div className="list">
                                             <ul>
@@ -182,7 +182,7 @@ function CourseDetails(props) {
                                     <div className="enroll-img">
                                         <img src="/images/courses/courses-4.jpg" alt="Image" />
                                         <div className="icon">
-                                            <a className="popup-youtube play-btn" href="https://www.youtube.com/watch?v=LHBE6Q9XlzI"><i className="ri-play-fill"></i></a>
+                                            <a className="popup-youtube play-btn" href={details.courseYoutubeLink}><i className="ri-play-fill"></i></a>
                                         </div>
                                     </div>
                                     <div className="list">
@@ -192,10 +192,10 @@ function CourseDetails(props) {
                                                 (please send us your intent through registration)
                                             </li>
                                             <li>
-                                                <span>Duration :</span>30 Hours <br />
+                                                <span>Duration :</span>{details.courseDurationInHours} Hours <br />
                                                 (preferably in 5 to 7 weekdays/weekend days)
                                             </li>
-                                            <li><span>Delivery Mode :</span>Blended Learning</li>
+                                            {/* <li><span>Delivery Mode :</span>Blended Learning</li> */}
                                             <li>
                                                 <span>Fee per Person :</span>BDT {details.courseFee}/-
                                                 <br />(excluding Tax and VAT)
