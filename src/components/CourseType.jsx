@@ -12,18 +12,18 @@ function Course(props) {
             if(props.id && (!courseTypeDetails || courseTypeDetails.id!=props.id)){
               AxiosWeb.get(`/courseType/details/${props.id}`)
               .then(result=>{
+                    window.SpinnerHide();
                     if(result.data.status==200){
                         setCourseTypeDetails(result.data.data);
-                        window.SpinnerHide();
                     }
               })
             }
             else if (props.page && props.page == "home-page" && !courseTypes){
                 AxiosWeb.get(`/courseType/homePage`)
               .then(result=>{
+                    window.SpinnerHide();
                     if(result.data.status==200){
                         setCourseTypes(result.data.data);
-                        window.SpinnerHide();
                     }
               })
             }
@@ -35,7 +35,8 @@ function Course(props) {
 
         return (
             <>
-            {courseTypeDetails && <>
+            {!props.page &&<>
+            {courseTypeDetails ? <>
                 <div className="page-banner-area bg-1">
                     <div className="container">
                         <div className="page-banner-content">
@@ -69,7 +70,35 @@ function Course(props) {
                         </div>
                     </div>
                 </div>
+            </>
+            :
+            <>
+                <div className="page-banner-area bg-1">
+                    <div className="container">
+                        <div className="page-banner-content">
+                            <h1>Course</h1>
+                            <ul>
+                                <li><a href="training-courses.html">Courses</a></li>
+                                <li>Course</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div className="courses-details-area pt-70 pb-70">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="courses-details">
+                                    <div className="courses-card" style={{textAlign:"center"}}>
+                                        <h2>No Course Found !</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </>} 
+            </>}
 
             {props.page && props.page == "home-page" && <>
                 <div className="courses-area ptb-100 bg-f4f6f9">
@@ -82,7 +111,7 @@ function Course(props) {
 
                             {courseTypes && courseTypes.map((item,i)=>{
                                 return (
-                                    <div className="col-lg-4 col-md-6"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
+                                    <div key={i} className="col-lg-4 col-md-6"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
                                         <div className="single-courses-card">
                                             <div className="courses-img">
                                             <Link to={`/course-details/${item.id}`}><img loading="lazy" src={item.files.length>0?item.files[0].link:"/images/courses/courses-1.jpg"} alt="Image" style={{minHeight:"225px"}}/></Link>

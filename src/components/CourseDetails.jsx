@@ -8,19 +8,19 @@ function CourseDetails(props) {
     useEffect(() => {
         if (props.id) {
             AxiosWeb.get(`/course/details/id/${props.id}`)
-                .then(result => {
-                    if (result.data.status == 200) {
-                        window.SpinnerHide();
-                        setDetails(result.data.data)
-                    }
-                })
+            .then(result => {
+                window.SpinnerHide();
+                if (result.data.status == 200) {
+                    setDetails(result.data.data)
+                }
+            });
         }
 
     }, [props.id])
 
     return (
         <>
-            {details && <>
+            {details ? <>
                 <div className="page-banner-area bg-1">
                     <div className="container">
                         <div className="page-banner-content">
@@ -208,7 +208,35 @@ function CourseDetails(props) {
                         </div>
                     </div>
                 </div>
-            </>}
+            </>
+            :
+            <>
+                <div className="page-banner-area bg-1">
+                    <div className="container">
+                        <div className="page-banner-content">
+                            <h1>Course</h1>
+                            <ul>
+                                <li><a href="training-courses.html">Courses</a></li>
+                                <li>Course</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div className="courses-details-area pt-70 pb-70">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="courses-details">
+                                    <div className="courses-card" style={{textAlign:"center"}}>
+                                        <h2>No Course Found !</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
+            }
         </>
     )
 }
