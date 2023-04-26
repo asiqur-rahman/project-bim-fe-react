@@ -80,7 +80,7 @@ function Navbar() {
                                                     {item.pages.map((page, j) => {
                                                         return (
                                                             <li className="nav-item" key={j}>
-                                                                <Link to={`/${item.menuBreadcrumb}/${page.pageBreadcrumb}`} className="nav-link">{page.name}</Link>
+                                                                <Link to={`/${item.menuBreadcrumb}/${page.pageBreadcrumb}`} className="nav-link">{page.pageName}</Link>
                                                             </li>
                                                         )
                                                     })}

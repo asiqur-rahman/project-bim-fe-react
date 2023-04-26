@@ -15,7 +15,7 @@ function HomePage() {
 
   useEffect(() => {
     window.SpinnerHide();
-    AOS.init();
+    // AOS.init();
   }, []);
 
   return (

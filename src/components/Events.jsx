@@ -8,9 +8,10 @@ function Events(props) {
             window.SpinnerHide();
             AOS.init();
         }, []);
+
         return (
             <>
-                {props.page && props.page == "trainings" && <>
+                {props.id &&  <>
                     <div className="page-banner-area bg-2">
                         <div className="container">
                             <div className="page-banner-content">
