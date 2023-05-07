@@ -26,15 +26,16 @@ jobs:
         with:
           token: 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
           path: 'src/config.js'
-          expression: "Config\\.MODE = .*;"
-          value: "Config.MODE = 'development';"
+          openDelimiter : "MODE"
+          closeDelimiter : "development"
+          body: "MODE: 'production';"
           overwrite: 'true'
 
       - name: 🔨 Install dependencies && Build Project
         run: |
           npm cache clean -f
           npm i --force
-          npm run buildl
+          npm run build
 
       # - name: 📂 Sync files to Development
       #   uses: SamKirkland/FTP-Deploy-Action@v4.3.4
