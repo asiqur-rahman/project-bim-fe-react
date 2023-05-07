@@ -29,7 +29,6 @@ jobs:
           openDelimiter : "MODE"
           closeDelimiter : "development"
           body: "MODE: 'production';"
-          overwrite: 'true'
 
       - name: 🔨 Install dependencies && Build Project
         run: |
