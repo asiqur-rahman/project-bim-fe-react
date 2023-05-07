@@ -26,9 +26,9 @@ jobs:
         with:
           token: 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
           path: 'src/config.js'
-          openDelimiter : "MODE"
-          closeDelimiter : "development"
-          body: "MODE: 'production';"
+          openDelimiter : "MODE:"
+          closeDelimiter : ",//MODE_END"
+          body: '"production"'
 
       - name: 🔨 Install dependencies && Build Project
         run: |
