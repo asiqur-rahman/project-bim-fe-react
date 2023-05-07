@@ -1,10 +1,13 @@
 import CryptoJS from "crypto-js";
-import {
-    SESSION_NAME
-  } from '../config';
+import Config from '../config';
+
+export const baseUrl = () => {
+    const baseUrl = Config.MODE=="production" ? Config.applicationSettings.productionBaseURL : Config.applicationSettings.developmentBaseURL;
+    return baseUrl;
+}
 
 export const getUser = () => {
-    const user = localStorage.getItem(SESSION_NAME);
+    const user = localStorage.getItem(Config.applicationSettings.SESSION_NAME);
     if(user){
         const data=decrypt(user);
         // // console.log(data)
@@ -20,7 +23,7 @@ export const getUser = () => {
 
 
 export const isUserLogedIn = () => {
-    const user = localStorage.getItem(SESSION_NAME);
+    const user = localStorage.getItem(Config.applicationSettings.SESSION_NAME);
     if(user){
         const data=decrypt(user);
         if(data){
@@ -41,9 +44,9 @@ export const isUserLogedIn = () => {
 }
 
 export const getToken= (refreshToken=false) => {
-    const user = localStorage.getItem(SESSION_NAME);
+    const user = localStorage.getItem(Config.applicationSettings.SESSION_NAME);
     if(user){
-        const data=decrypt(localStorage.getItem(SESSION_NAME));
+        const data=decrypt(localStorage.getItem(Config.applicationSettings.SESSION_NAME));
         const session=JSON.parse(data);
         // const SessionTime=new Date(session['sessionTime']).toLocaleTimeString();
         // const LocalTime=new Date().toLocaleTimeString()
@@ -71,12 +74,12 @@ export const setSession= async (sessionData) => {
     // sessionData.sessionTime = sessionValidate;
     if(!sessionData.items)sessionData.items={};
     var session = JSON.stringify(sessionData);
-    localStorage.setItem(SESSION_NAME,encrypt(session));
+    localStorage.setItem(Config.applicationSettings.SESSION_NAME,encrypt(session));
     return true;
 }
 
 export const removeSession= async (name) => {
-    localStorage.removeItem(name??SESSION_NAME);
+    localStorage.removeItem(name??Config.applicationSettings.SESSION_NAME);
 }
 
 export const encrypt= (data) => {

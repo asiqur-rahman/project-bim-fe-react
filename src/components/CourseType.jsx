@@ -57,7 +57,7 @@ function Course(props) {
                                     <div key={i} className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
                                         <div className="single-courses-card">
                                             <div className="courses-img">
-                                                <Link to={`/course-details/${item.id}`}><img loading="lazy" src={item.files[0].link} alt="Image" /></Link>
+                                                <Link to={`/course-details/${item.id}`}><img loading="lazy" src={item.files.length>0?item.files[0].link:"/images/courses/courses-1.jpg"} alt="Image" /></Link>
                                             </div>
                                             <div className="courses-content">
                                                 <Link to={`/course-details/${item.id}`}><h3>{item.courseName}<br /><small style={{fontSize:"15px"}}>Code – ‘{item.courseCode}’</small></h3></Link>

@@ -1,0 +1,70 @@
+name: Production Deployment
+on:
+  push:
+    branches: 
+      - production
+
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Admin-Panel
+    runs-on: ubuntu-latest
+    env:
+      MODE: "production"
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      
+      - name: Create Environment File
+        uses: jaywcjlove/github-action-modify-file-content@main
+        with:
+          token: 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
+          path: .env
+          body: |
+            REACT_APP_ENV=${{ env.MODE }}
+          overwrite: 'true'
+
+      - name: 🔨 Install dependencies && Build Project
+        run: |
+          npm cache clean -f
+          npm i --force
+          npm run buildl18
+
+      # - name: 📂 Sync files to Production
+      #   uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      #   with:
+      #     server: sustainability.com.bd
+      #     username: adminpanel@sustainability.com.bd
+      #     password: ${{ secrets.FTP_PASS_BTS }}
+      #     dangerous-clean-slate: true
+      #     exclude: |
+      #       **/.git*
+      #       **/.github*
+      #       **/.env*
+      #       **/.git*/**
+      #       **/node_modules/**
+      #       **/public/**
+      #       **/src/**
+      #       package.json
+      #       package-lock.json
+      #       vite.config.js
+      #       yarn.lock
+
+        # Always run this step, regardless of success or failure
+      - name: Delete Environment File
+        run: rm .env
+
+      - name: Commit Deleted Environment File
+        if: always()
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: "Remove .env file"
+          add: .
+        env:
+          GITHUB_TOKEN: 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

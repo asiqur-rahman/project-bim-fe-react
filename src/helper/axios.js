@@ -1,13 +1,11 @@
 
 import axios from 'axios';
 import {getToken} from './common';
-import {
-  BASE_URL,
-  BASE_TOKEN
-} from '../config';
+import Config from '../config';
+import * as Common from './common';
 
 let instance = axios.create({
-  baseURL: BASE_URL,
+  baseURL: Common.baseUrl(),
 })
 
 // request header
@@ -48,13 +46,13 @@ instance.interceptors.response.use(
 export default instance;
 
 let web = axios.create({
-  baseURL: BASE_URL,
+  baseURL: Common.baseUrl(),
 })
 
 
 // request header
 web.interceptors.request.use((config) => {
-  config.headers = { 'Authorization': 'Bearer ' +  BASE_TOKEN}
+  config.headers = { 'Authorization': 'Bearer ' +  Config.applicationSettings.BASE_TOKEN}
   return config;
 }, error => {
   return Promise.reject(error);
