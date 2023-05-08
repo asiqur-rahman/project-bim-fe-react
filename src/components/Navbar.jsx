@@ -3,29 +3,6 @@ import { Link } from "react-router-dom";
 import Logo from '/images/logo.png'
 import Axios, { web as AxiosWeb } from '../helper/axios'
 
-const StudyFixedMenu = ({ item }) => {
-    return (
-        <>
-            {item.menuBreadcrumb == "study" &&
-                <>
-                    <li className="nav-item">
-                        <Link to={`/${item.menuBreadcrumb}/training-courses`} className="nav-link">Training Courses</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to={`/${item.menuBreadcrumb}/certificate-courses`} className="nav-link">Cerificate Courses</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to={`/${item.menuBreadcrumb}/diploma-courses`} className="nav-link">Diploma Courses</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to={`/${item.menuBreadcrumb}/pgd-courses`} className="nav-link">PGD Courses</Link>
-                    </li>
-                </>}
-        </>
-    )
-}
-
-
 function Navbar() {
     const [menu, setMenu] = useState(false);
     useEffect(() => {
@@ -73,6 +50,14 @@ function Navbar() {
                                                         return (
                                                             <li className="nav-item" key={j}>
                                                                 <Link to={`/course-type/${page.id}`} className="nav-link">{page.courseTypeName}</Link>
+                                                            </li>
+                                                        )
+                                                    })}
+
+                                                    {item.eventTypes.map((page, j) => {
+                                                        return (
+                                                            <li className="nav-item" key={j}>
+                                                                <Link to={`/event-type/${page.id}`} className="nav-link">{page.eventTypeName}</Link>
                                                             </li>
                                                         )
                                                     })}

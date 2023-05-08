@@ -1,48 +1,80 @@
 
 import { useEffect, useState } from 'react'
+import Axios, { web as AxiosWeb } from '../helper/axios'
+import { Link } from "react-router-dom";
 
 function Events(props) {
 
+    const [eventTypeDetails, setEventTypeDetails] = useState(false);
+    const [eventTypes, setEventTypes] = useState(false);
     const Render = () => {
+
         useEffect(() => {
-            window.SpinnerHide();
+            if (props.id && (!eventTypeDetails || eventTypeDetails.id != props.id)) {
+                AxiosWeb.get(`/eventType/details/${props.id}`)
+                    .then(result => {
+                        window.SpinnerHide();
+                        if (result.data.status == 200) {
+                            setEventTypeDetails(result.data.data);
+                        }
+                    })
+            }
+            else if (props.page && props.page == "home-page" && !courseTypes) {
+                AxiosWeb.get(`/eventType/homePage`)
+                    .then(result => {
+                        window.SpinnerHide();
+                        if (result.data.status == 200) {
+                            setEventTypes(result.data.data);
+                        }
+                    })
+            }
+        }, [props.id, props.page])
+
+        useEffect(() => {
             AOS.init();
         }, []);
 
         return (
             <>
-                {props.id &&  <>
-                    <div className="page-banner-area bg-2">
-                        <div className="container">
-                            <div className="page-banner-content">
-                                <h1>Trainings</h1>
-                                <ul>
-                                    <li><a href="#">Events</a></li>
-                                    <li>Trainings</li>
-                                </ul>
+                {props.id && <>
+                    {eventTypeDetails ? <>
+                        <div className="page-banner-area bg-2">
+                            <div className="container">
+                                <div className="page-banner-content">
+                                    <h1>{eventTypeDetails.eventTypeName}</h1>
+                                    <ul>
+                                        <li><a href="#">Events</a></li>
+                                        <li>{eventTypeDetails.eventTypeName}</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
 
-                    <div className="events-area pt-70 pb-70">
-                        <div className="container">
-                            <div className="row justify-content-center">
-                                <div className="col-lg-4 col-md-6">
-                                    <div className="single-events-card style-4">
-                                        <div className="events-image">
-                                            <a href="events-details.html"><img src="/images/events/events-3.jpg" alt="Image" /></a>
-                                            <div className="date">
-                                                <span>18</span>
-                                                <p>Mar 2023</p>
+                        <div className="events-area pt-70 pb-70">
+                            <div className="container">
+                                <div className="row justify-content-center">
+                                    {eventTypeDetails.events.map((item, i) => {
+                                        return (
+                                            <div className="col-lg-4 col-md-6">
+                                                <div className="single-events-card style-4">
+                                                    <div className="events-image">
+                                                        <a href="events-details.html"><img src="/images/events/events-3.jpg" alt="Image" /></a>
+                                                        <div className="date">
+                                                            <span>18</span>
+                                                            <p>Mar 2023</p>
+                                                        </div>
+                                                    </div>
+                                                    <div className="events-content">
+                                                        <a href="events-details.html"><h3>Inauguration of 3rd Batch of “Sustainability Management” training program</h3></a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="events-content">
-                                            <a href="events-details.html"><h3>Inauguration of 3rd Batch of “Sustainability Management” training program</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6">
+                                        )
+                                    })
+                                    }
+
+                                    {/* <div className="col-lg-4 col-md-6">
                                     <div className="single-events-card style-4">
                                         <div className="events-image">
                                             <a href="events-details.html"><img src="/images/events/events-2.jpg" alt="Image" /></a>
@@ -69,10 +101,38 @@ function Events(props) {
                                             <a href="events-details.html"><h3>Inauguration of the First Batch of “Sustainability Management” training program</h3></a>
                                         </div>
                                     </div>
+                                </div> */}
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </> 
+                    :
+                    <>
+                        <div className="page-banner-area bg-1">
+                            <div className="container">
+                                <div className="page-banner-content">
+                                    <h1>Events</h1>
+                                    <ul>
+                                        <li><a href="#">Events</a></li>
+                                        <li>Event</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="courses-details-area pt-70 pb-70">
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <div className="courses-details">
+                                            <div className="courses-card" style={{ textAlign: "center" }}>
+                                                <h2>No Event Type Found !</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </>}
                 </>}
 
                 {props.page && props.page == "workshops" && <>
@@ -285,7 +345,7 @@ function Events(props) {
 
     return (
         <>
-            {props.page && <Render />}
+            {(props.id || props.page) && <Render />}
         </>
 
     )

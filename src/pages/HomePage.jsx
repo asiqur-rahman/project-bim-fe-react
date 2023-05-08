@@ -7,7 +7,7 @@ import Academic from '../components/Academic'
 import CampusInformation from '../components/CampusInformation'
 import CourseType from '../components/CourseType'
 import Admission from '../components/Admission'
-import Events from '../components/Events'
+import EventTypePage from '../components/EventType'
 import LatestNews from '../components/LatestNews'
 import Footer from '../components/Footer'
 
@@ -28,7 +28,7 @@ function HomePage() {
     <CampusInformation/>
     <CourseType page="home-page"/>
     <Admission/>
-    <Events page="home-page"/>
+    <EventTypePage page="home-page"/>
     <LatestNews page="home-page"/>
     <Footer/>
     </>
