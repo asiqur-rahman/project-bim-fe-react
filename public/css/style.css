@@ -3870,7 +3870,8 @@ textarea {
 .single-events-card .events-image .date {
     background-color: #fff;
     position: absolute;
-    bottom: -35px;
+    bottom: -30px;
+    /* bottom: -10px; */
     left: 30px;
     padding: 15px 25px;
     -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, .05);

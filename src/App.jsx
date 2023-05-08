@@ -7,6 +7,7 @@ import NewsBlogsPage  from './pages/NewsBlogsPage'
 import EventTypePage  from './pages/EventTypePage'
 import CourseTypePage  from './pages/CourseTypePage'
 import CourseDetailsPage  from './pages/CourseDetailsPage'
+import EventDetailsPage  from './pages/EventDetailsPage'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/news-blogs/:page" element={<NewsBlogsPage />} />
           <Route path="/registration/:page" element={<HomePage />} />
           <Route path="/course-details/:id" element={<CourseDetailsPage />} />
+          <Route path="/event-details/:id" element={<EventDetailsPage />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -19,7 +19,7 @@ function Events(props) {
                         }
                     })
             }
-            else if (props.page && props.page == "home-page" && !courseTypes) {
+            else if (props.page && props.page == "home-page" && !eventTypes) {
                 AxiosWeb.get(`/eventType/homePage`)
                     .then(result => {
                         window.SpinnerHide();
@@ -59,14 +59,14 @@ function Events(props) {
                                             <div className="col-lg-4 col-md-6">
                                                 <div className="single-events-card style-4">
                                                     <div className="events-image">
-                                                        <a href="events-details.html"><img src="/images/events/events-3.jpg" alt="Image" /></a>
+                                                        <a href={`/event-details/${item.id}`}><img src="/images/events/events-3.jpg" alt="Image" /></a>
                                                         <div className="date">
-                                                            <span>18</span>
-                                                            <p>Mar 2023</p>
+                                                            <span>{new Date(item.eventDate).getDate()}</span>
+                                                            <p>{new Date(item.eventDate).toLocaleString('default', { month: 'short' })} {new Date(item.eventDate).getFullYear()}</p>
                                                         </div>
                                                     </div>
                                                     <div className="events-content">
-                                                        <a href="events-details.html"><h3>Inauguration of 3rd Batch of “Sustainability Management” training program</h3></a>
+                                                        <a href={`/event-details/${item.id}`}><h3>{item.eventName}</h3></a>
                                                     </div>
                                                 </div>
                                             </div>
