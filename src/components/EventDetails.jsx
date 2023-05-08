@@ -40,7 +40,7 @@ function EventDetails(props) {
                             <div className="col-lg-12">
                                 <div className="events-details-left-content pr-20">
                                     <div className="events-image">
-                                        <img src="/images/events/events-3.jpg" alt="Image"/>
+                                        <img src={details.files.length>0? details.files[0].link:"/images/events/events-3.jpg"} alt="Image"/>
                                     </div>
                                     <div style={{textAlign:"justify"}} className="meetings">
                                         <h2>{details.eventName}</h2>
