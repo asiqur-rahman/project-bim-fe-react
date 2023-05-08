@@ -70,6 +70,15 @@ function Navbar() {
                                                         )
                                                     })}
 
+                                                    {item.menuBreadcrumb=="news-blogs"&&<>
+                                                        <li className="nav-item">
+                                                            <Link to={`/${item.menuBreadcrumb}/`} className="nav-link">Latest News</Link>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <Link to={`/${item.menuBreadcrumb}/`} className="nav-link">Blog</Link>
+                                                        </li>
+                                                    </>}
+
                                                 </ul>
                                             </li>
                                         )
