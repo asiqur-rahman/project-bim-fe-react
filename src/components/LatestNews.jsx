@@ -9,7 +9,7 @@ function LatestNews(props) {
         }, []);
         return (
             <>
-                {props.page && props.page == "latest-news" && <>
+                {props.page && props.page == "news" && <>
                     <div className="page-banner-area bg-2">
                         <div className="container">
                             <div className="page-banner-content">
@@ -75,7 +75,7 @@ function LatestNews(props) {
                                     </div>
 
                                     <div className="related-post-area">
-                                        <h3>Recent Post</h3>
+                                        <h3>Recent News</h3>
                                         <div className="related-post-box">
                                             <div className="related-post-content">
                                                 <a href="latest-news.html"><img src="/images/events/events-3.jpg" alt="Image" /></a>
