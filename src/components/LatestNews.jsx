@@ -1,8 +1,35 @@
-import { useEffect, useState } from 'react'
+import { useEffect,useState } from 'react'
+import Axios, {web as AxiosWeb} from '../helper/axios'
+import { Link } from "react-router-dom";
 
 function LatestNews(props) {
-
+    const [newsDetails, setNewsDetails]= useState(false);
+    const [newsList, setNewsList]= useState(false);
+    const [newss, setNews]= useState(false);
+    
     const Render = () => {
+        useEffect(()=>{
+            if(!newsList){
+              AxiosWeb.get(`/newsAndBlog/list?listFor=news&limit=5&offset=0`)
+              .then(result=>{
+                    window.SpinnerHide();
+                    if(result.data){
+                        setNewsDetails(result.data);
+                        setNewsList(result.data.data);
+                    }
+              })
+            }
+            else if (props.page && props.page == "home-page" && !newss){
+                AxiosWeb.get(`/news/homePage`)
+              .then(result=>{
+                    window.SpinnerHide();
+                    if(result.data.status==200){
+                        setNews(result.data.data);
+                    }
+              })
+            }
+        },[props.id,props.page])
+
         useEffect(() => {
             window.SpinnerHide();
             AOS.init();
@@ -27,17 +54,22 @@ function LatestNews(props) {
                             <div className="row">
                                 <div className="col-lg-8">
                                     <div className="latest-news-left-content pr-20">
-                                        <div style={{ backgroundImage: "url(/images/events/events-3.jpg" }} className="latest-news-simple-card">
-                                            <div className="news-content">
-                                                <div className="list">
-                                                    <ul>
-                                                        <li><i className="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
-                                                    </ul>
+                                        {newsList && newsList.map((item,i)=>{
+                                            return (
+                                                <div key={i} style={{ backgroundImage: "url(/images/events/events-3.jpg" }} className="latest-news-simple-card">
+                                                    <div className="news-content">
+                                                        <div className="list">
+                                                            <ul>
+                                                                <li><i className="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <a href="news-details.html"><h3>{item.newsAndBlogName}</h3></a>
+                                                        <a href="news-details.html" className="read-more-btn active">Read More<i className="flaticon-next"></i></a>
+                                                    </div>
                                                 </div>
-                                                <a href="news-details.html"><h3>Inauguration of 3rd Batch of “Sustainability Management” training program</h3></a>
-                                                <a href="news-details.html" className="read-more-btn active">Read More<i className="flaticon-next"></i></a>
-                                            </div>
-                                        </div>
+                                            )
+                                        })}
+{/*                                         
                                         <div style={{ backgroundImage: "url(/images/events/events-2.jpg" }} className="latest-news-simple-card">
                                             <div className="news-content">
                                                 <div className="list">
@@ -59,7 +91,7 @@ function LatestNews(props) {
                                                 <a href="news-details.html"><h3>Inauguration of the First Batch of “Sustainability Management” training program</h3></a>
                                                 <a href="news-details.html" className="read-more-btn active">Read More<i className="flaticon-next"></i></a>
                                             </div>
-                                        </div>
+                                        </div> */}
 
                                     </div>
                                 </div>

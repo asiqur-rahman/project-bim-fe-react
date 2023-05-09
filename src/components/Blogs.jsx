@@ -1,8 +1,35 @@
-import { useEffect, useState } from 'react'
+import { useEffect,useState } from 'react'
+import Axios, {web as AxiosWeb} from '../helper/axios'
+import { Link } from "react-router-dom";
 
 function Blogs(props) {
-
+    const [blogDetails, setBlogDetails]= useState(false);
+    const [blogList, setBlogList]= useState(false);
+    const [blog, setBlog]= useState(false);
+    
     const Render = () => {
+        useEffect(()=>{
+            if(!blogList){
+              AxiosWeb.get(`/newsAndBlog/list?listFor=blog&limit=5&offset=0`)
+              .then(result=>{
+                    window.SpinnerHide();
+                    if(result.data){
+                        setBlogDetails(result.data);
+                        setBlogList(result.data.data);
+                    }
+              })
+            }
+            else if (props.page && props.page == "home-page" && !newss){
+                AxiosWeb.get(`/news/homePage`)
+              .then(result=>{
+                    window.SpinnerHide();
+                    if(result.data.status==200){
+                        setBlog(result.data.data);
+                    }
+              })
+            }
+        },[props.id,props.page])
+
         useEffect(() => {
             window.SpinnerHide();
             AOS.init();
@@ -30,83 +57,89 @@ function Blogs(props) {
 
                                         <div className="latest-news-card-area">
                                             <div className="row">
-                                                <div className="col-lg-6 col-md-6">
+
+                                                {blogList && blogList.map((item,i)=>{
+                                                    return (
+                                                        <div key={i} className="col-lg-6 col-md-6">
+                                                            <div className="single-news-card">
+                                                                <div className="news-img">
+                                                                    <a href={`/news-and-blog-details/${item.id}`}><img src="/images/news/news-2.jpg" alt="Image" /></a>
+                                                                </div>
+                                                                <div className="news-content">
+                                                                    <div className="list">
+                                                                        <ul>
+                                                                            <li><i className="flaticon-user"></i>By <a href={`/news-and-blog-details/${item.id}`}>Admin</a></li>
+                                                                            <li><i className="flaticon-tag"></i>{item.newsAndBlogTags}</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <a href={`/news-and-blog-details/${item.id}`}><h3>{item.newsAndBlogName}</h3></a>
+                                                                    <a href={`/news-and-blog-details/${item.id}`} className="read-more-btn">Read More<i className="flaticon-next"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                })}
+                                                
+                                                {/* <div className="col-lg-6 col-md-6">
                                                     <div className="single-news-card">
                                                         <div className="news-img">
-                                                            <a href="news-details.html"><img src="/images/news/news-2.jpg" alt="Image" /></a>
+                                                            <a href={`/news-and-blog-details/${item.id}`}><img src="/images/news/news-3.jpg" alt="Image" /></a>
                                                         </div>
                                                         <div className="news-content">
                                                             <div className="list">
                                                                 <ul>
-                                                                    <li><i className="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
+                                                                    <li><i className="flaticon-user"></i>By <a href={`/news-and-blog-details/${item.id}`}>Admin</a></li>
                                                                     <li><i className="flaticon-tag"></i>Social Sciences</li>
                                                                 </ul>
                                                             </div>
-                                                            <a href="news-details.html"><h3>The Forum Hosts A Discussion With Niall Ferguson</h3></a>
-                                                            <a href="news-details.html" className="read-more-btn">Read More<i className="flaticon-next"></i></a>
+                                                            <a href={`/news-and-blog-details/${item.id}`}><h3>How To Use Technology To Adapt Your Talent To The World</h3></a>
+                                                            <a href={`/news-and-blog-details/${item.id}`} className="read-more-btn">Read More<i className="flaticon-next"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-6 col-md-6">
                                                     <div className="single-news-card">
                                                         <div className="news-img">
-                                                            <a href="news-details.html"><img src="/images/news/news-3.jpg" alt="Image" /></a>
+                                                            <a href={`/news-and-blog-details/${item.id}`}><img src="/images/news/news-6.jpg" alt="Image" /></a>
                                                         </div>
                                                         <div className="news-content">
                                                             <div className="list">
                                                                 <ul>
-                                                                    <li><i className="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
+                                                                    <li><i className="flaticon-user"></i>By <a href={`/news-and-blog-details/${item.id}`}>Admin</a></li>
                                                                     <li><i className="flaticon-tag"></i>Social Sciences</li>
                                                                 </ul>
                                                             </div>
-                                                            <a href="news-details.html"><h3>How To Use Technology To Adapt Your Talent To The World</h3></a>
-                                                            <a href="news-details.html" className="read-more-btn">Read More<i className="flaticon-next"></i></a>
+                                                            <a href={`/news-and-blog-details/${item.id}`}><h3>Here Are The Things To Look For When Selecting Course</h3></a>
+                                                            <a href={`/news-and-blog-details/${item.id}`} className="read-more-btn">Read More<i className="flaticon-next"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-6 col-md-6">
                                                     <div className="single-news-card">
                                                         <div className="news-img">
-                                                            <a href="news-details.html"><img src="/images/news/news-6.jpg" alt="Image" /></a>
+                                                            <a href={`/news-and-blog-details/${item.id}`}><img src="/images/news/news-7.jpg" alt="Image" /></a>
                                                         </div>
                                                         <div className="news-content">
                                                             <div className="list">
                                                                 <ul>
-                                                                    <li><i className="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
+                                                                    <li><i className="flaticon-user"></i>By <a href={`/news-and-blog-details/${item.id}`}>Admin</a></li>
                                                                     <li><i className="flaticon-tag"></i>Social Sciences</li>
                                                                 </ul>
                                                             </div>
-                                                            <a href="news-details.html"><h3>Here Are The Things To Look For When Selecting Course</h3></a>
-                                                            <a href="news-details.html" className="read-more-btn">Read More<i className="flaticon-next"></i></a>
+                                                            <a href={`/news-and-blog-details/${item.id}`}><h3>Professor Tom Comments On The Volunteer B. Snack Brand</h3></a>
+                                                            <a href={`/news-and-blog-details/${item.id}`} className="read-more-btn">Read More<i className="flaticon-next"></i></a>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div className="col-lg-6 col-md-6">
-                                                    <div className="single-news-card">
-                                                        <div className="news-img">
-                                                            <a href="news-details.html"><img src="/images/news/news-7.jpg" alt="Image" /></a>
-                                                        </div>
-                                                        <div className="news-content">
-                                                            <div className="list">
-                                                                <ul>
-                                                                    <li><i className="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
-                                                                    <li><i className="flaticon-tag"></i>Social Sciences</li>
-                                                                </ul>
-                                                            </div>
-                                                            <a href="news-details.html"><h3>Professor Tom Comments On The Volunteer B. Snack Brand</h3></a>
-                                                            <a href="news-details.html" className="read-more-btn">Read More<i className="flaticon-next"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </div> */}
                                             </div>
                                         </div>
                                         <div className="paginations">
                                             <ul>
-                                                <li><a href="news-details.html"><i className="flaticon-back"></i></a></li>
-                                                <li><a href="news-details.html">01</a></li>
-                                                <li><a href="news-details.html">02</a></li>
-                                                <li><a href="news-details.html">03</a></li>
-                                                <li><a href="latest-news.html" className="active"><i className="flaticon-next"></i></a></li>
+                                                <li><a href="latest-news.html"><i className="flaticon-back"></i></a></li>
+                                                <li><a href="latest-news.html" className="active">01</a></li>
+                                                <li><a href="latest-news.html">02</a></li>
+                                                <li><a href="latest-news.html">03</a></li>
+                                                <li><a href="latest-news.html"><i className="flaticon-next"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
