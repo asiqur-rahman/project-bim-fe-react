@@ -10,7 +10,7 @@ function LatestNews(props) {
     const Render = () => {
         useEffect(()=>{
             if(!newsList){
-              AxiosWeb.get(`/newsAndBlog/list?listFor=news&limit=5&offset=0`)
+              AxiosWeb.get(`/newsAndBlog/list?listFor=news&filesNeeded=true&limit=5&offset=0`)
               .then(result=>{
                     window.SpinnerHide();
                     if(result.data){
@@ -56,15 +56,15 @@ function LatestNews(props) {
                                     <div className="latest-news-left-content pr-20">
                                         {newsList && newsList.map((item,i)=>{
                                             return (
-                                                <div key={i} style={{ backgroundImage: "url(/images/events/events-3.jpg" }} className="latest-news-simple-card">
+                                                <div key={i} style={{ backgroundImage: `${item.files.length>0?`url(${item.files[0].link})`:"url(/images/events/events-3.jpg)"}` }} className="latest-news-simple-card">
                                                     <div className="news-content">
                                                         <div className="list">
                                                             <ul>
-                                                                <li><i className="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
+                                                                <li><i className="flaticon-user"></i>By <a href={`/news-and-blog-details/${item.id}`}>Admin</a></li>
                                                             </ul>
                                                         </div>
-                                                        <a href="news-details.html"><h3>{item.newsAndBlogName}</h3></a>
-                                                        <a href="news-details.html" className="read-more-btn active">Read More<i className="flaticon-next"></i></a>
+                                                        <a href={`/news-and-blog-details/${item.id}`}><h3>{item.newsAndBlogName}</h3></a>
+                                                        <a href={`/news-and-blog-details/${item.id}`} className="read-more-btn active">Read More<i className="flaticon-next"></i></a>
                                                     </div>
                                                 </div>
                                             )

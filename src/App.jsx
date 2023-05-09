@@ -8,6 +8,7 @@ import EventTypePage  from './pages/EventTypePage'
 import CourseTypePage  from './pages/CourseTypePage'
 import CourseDetailsPage  from './pages/CourseDetailsPage'
 import EventDetailsPage  from './pages/EventDetailsPage'
+import NewsBlogsDetailsPage  from './pages/NewsBlogsDetailsPage'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/stories/:page" element={<HomePage />} />
           <Route path="/event-type/:id" element={<EventTypePage />} />
           <Route path="/news-blogs/:page" element={<NewsBlogsPage />} />
+          <Route path="/news-and-blog-details/:id" element={<NewsBlogsDetailsPage />} />
           <Route path="/registration/:page" element={<HomePage />} />
           <Route path="/course-details/:id" element={<CourseDetailsPage />} />
           <Route path="/event-details/:id" element={<EventDetailsPage />} />

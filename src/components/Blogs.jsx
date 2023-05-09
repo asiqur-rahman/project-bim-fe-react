@@ -10,7 +10,7 @@ function Blogs(props) {
     const Render = () => {
         useEffect(()=>{
             if(!blogList){
-              AxiosWeb.get(`/newsAndBlog/list?listFor=blog&limit=5&offset=0`)
+              AxiosWeb.get(`/newsAndBlog/list?listFor=blog&filesNeeded=true&limit=5&offset=0`)
               .then(result=>{
                     window.SpinnerHide();
                     if(result.data){
@@ -31,7 +31,6 @@ function Blogs(props) {
         },[props.id,props.page])
 
         useEffect(() => {
-            window.SpinnerHide();
             AOS.init();
         }, []);
         return (
@@ -63,7 +62,7 @@ function Blogs(props) {
                                                         <div key={i} className="col-lg-6 col-md-6">
                                                             <div className="single-news-card">
                                                                 <div className="news-img">
-                                                                    <a href={`/news-and-blog-details/${item.id}`}><img src="/images/news/news-2.jpg" alt="Image" /></a>
+                                                                    <a href={`/news-and-blog-details/${item.id}`}><img src={item.files.length>0?item.files[0].link:"/images/news/news-2.jpg"} alt="Image" /></a>
                                                                 </div>
                                                                 <div className="news-content">
                                                                     <div className="list">
