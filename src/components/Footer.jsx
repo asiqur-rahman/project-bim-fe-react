@@ -16,11 +16,11 @@ function Footer() {
                         <h3>Useful link</h3>
                         <div className="list">
                             <ul>
-                                <li><a href="contact-us.html">Contact Us</a></li>
-                                <li><a href="SUSPlan.html">Sus-Plan</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                <li><a href="terms-conditions.html">Terms & Condition</a></li>
+                                <li><a href="/contact-us">Contact Us</a></li>
+                                <li><a href="#">Sus-Plan</a></li>
+                                <li><a href="/faq">FAQ</a></li>
+                                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                <li><a href="/terms-and-condition">Terms & Condition</a></li>
                             </ul>
                         </div>
                     </div>
@@ -30,11 +30,11 @@ function Footer() {
                         <h3>Study</h3>
                         <div className="list">
                             <ul>
-                                <li><a href="training-courses.html">Training Courses</a></li>
-                                <li><a href="Certificate-courses.html">Certificate Courses</a></li>
-                                <li><a href="Diploma-courses.html">Diploma Courses</a></li>
-                                <li><a href="pgd-courses.html">PGD Courses</a></li>
-                                <li><a href="Research-courses.html">Research Courses</a></li>
+                                <li><a href="/training-courses">Training Courses</a></li>
+                                <li><a href="/Certificate-courses">Certificate Courses</a></li>
+                                <li><a href="/Diploma-courses">Diploma Courses</a></li>
+                                <li><a href="/pgd-courses">PGD Courses</a></li>
+                                <li><a href="/research-courses">Research Courses</a></li>
                             </ul>
                         </div>
                     </div>

@@ -9,6 +9,10 @@ import CourseTypePage  from './pages/CourseTypePage'
 import CourseDetailsPage  from './pages/CourseDetailsPage'
 import EventDetailsPage  from './pages/EventDetailsPage'
 import NewsBlogsDetailsPage  from './pages/NewsBlogsDetailsPage'
+import ContactUSPage  from './pages/ContactUSPage'
+import FAQPage  from './pages/FAQPage'
+import PrivacyPolicyPage  from './pages/PrivacyPolicyPage'
+import TermsAndConditionPage  from './pages/TermsAndConditionPage'
 
 function App() {
 
@@ -29,6 +33,10 @@ function App() {
           <Route path="/registration/:page" element={<HomePage />} />
           <Route path="/course-details/:id" element={<CourseDetailsPage />} />
           <Route path="/event-details/:id" element={<EventDetailsPage />} />
+          <Route path="/contact-us" element={<ContactUSPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-and-condition" element={<TermsAndConditionPage />} />
         </Routes>
       </BrowserRouter>
     </div>
