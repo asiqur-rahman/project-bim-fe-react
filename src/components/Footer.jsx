@@ -92,7 +92,7 @@ function Footer() {
                     </div>
                     <div className="col-lg-6 col-md-8">
                         <div className="copy">
-                            <p>© 2023 Sus-Plan Developed By <a href="http://www.bim.gov.bd/" target="_blank">Bangladesh Institute of Management (BIM)</a></p>
+                            <p>© 2023 Sus-Plan Powered By <a href="http://www.bim.gov.bd/" target="_blank">Bangladesh Institute of Management (BIM)</a></p>
                         </div>
                     </div>
                 </div>

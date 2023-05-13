@@ -16,7 +16,16 @@ function EventDetails(props) {
                     }
                 });
         }
-    }, [props.id])
+        else if (props.page && props.page == "home-page" && !details) {
+            AxiosWeb.get(`/newsAndBlog/homePage`)
+                .then(result => {
+                    window.SpinnerHide();
+                    if (result.data.status == 200) {
+                        setDetails(result.data.data);
+                    }
+                })
+        }
+    }, [props.id, props.page])
 
     return (
         <>

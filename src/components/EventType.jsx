@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Events(props) {
 
     const [eventTypeDetails, setEventTypeDetails] = useState(false);
-    const [eventTypes, setEventTypes] = useState(false);
+    const [events, setEvents] = useState(false);
     const Render = () => {
 
         useEffect(() => {
@@ -19,12 +19,12 @@ function Events(props) {
                         }
                     })
             }
-            else if (props.page && props.page == "home-page" && !eventTypes) {
-                AxiosWeb.get(`/eventType/homePage`)
+            else if (props.page && props.page == "home-page" && !events) {
+                AxiosWeb.get(`/event/homePage`)
                     .then(result => {
                         window.SpinnerHide();
                         if (result.data.status == 200) {
-                            setEventTypes(result.data.data);
+                            setEvents(result.data.data);
                         }
                     })
             }
@@ -286,51 +286,27 @@ function Events(props) {
                         <div className="container">
                             <div className="section-title">
                                 <h2>Events</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec ullamcorper mattis </p>
+                                {/* <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec ullamcorper mattis </p> */}
                             </div>
                             <div className="row justify-content-center">
-                                <div className="col-lg-4 col-md-6">
-                                    <div className="single-events-card style-4">
-                                        <div className="events-image">
-                                            <a href="events-details.html"><img loading="lazy" src="/images/events/events-3.jpg" alt="Image" /></a>
-                                            <div className="date">
-                                                <span>18</span>
-                                                <p>Mar 2023</p>
+                                {events && events.map((item,i)=>{
+                                    return (
+                                        <div className="col-lg-4 col-md-6" key={i}>
+                                            <div className="single-events-card style-4">
+                                                <div className="events-image">
+                                                    <a href="events-details.html"><img loading="lazy" src={item.files && item.files.length>0 ? item.files[0].link:"/images/events/events-2.jpg"} alt="Image" /></a>
+                                                    <div className="date">
+                                                        <span>{new Date(item.eventDate).getDate()}</span>
+                                                        <p>{new Date(item.eventDate).toLocaleString('default', { month: 'short' })} {new Date(item.eventDate).getFullYear()}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="events-content">
+                                                    <a href="events-details.html"><h3>{item.eventName}</h3></a>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className="events-content">
-                                            <a href="events-details.html"><h3>Inauguration of 3rd Batch of “Sustainability Management” training program</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6">
-                                    <div className="single-events-card style-4">
-                                        <div className="events-image">
-                                            <a href="events-details.html"><img loading="lazy" src="/images/events/events-2.jpg" alt="Image" /></a>
-                                            <div className="date">
-                                                <span>17</span>
-                                                <p>Mar 2023</p>
-                                            </div>
-                                        </div>
-                                        <div className="events-content">
-                                            <a href="events-details.html"><h3>Inauguration of 2nd Batch of “Sustainability Management” training program</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6">
-                                    <div className="single-events-card style-4">
-                                        <div className="events-image">
-                                            <a href="events-details.html"><img loading="lazy" src="/images/events/events-1.jpg" alt="Image" /></a>
-                                            <div className="date">
-                                                <span>17</span>
-                                                <p>Mar 2023</p>
-                                            </div>
-                                        </div>
-                                        <div className="events-content">
-                                            <a href="events-details.html"><h3>Inauguration of the First Batch of “Sustainability Management” training program.</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                    )
+                                })}
                             </div>
                             <div className="more-health-care text-center">
                                 <p>Select From Other Options. <a href="trainings.html" className="read-more-btn active">More on Events<i className="flaticon-next"></i></a></p>
