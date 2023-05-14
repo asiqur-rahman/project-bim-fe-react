@@ -1,5 +1,5 @@
 const Config = {
-    MODE: "production",
+    MODE: "development",
     applicationInfo:{
       appName: "Sus-Plan",
       devOrgName: "Bangladesh Institute of Management (BIM)",
