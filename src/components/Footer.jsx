@@ -17,7 +17,7 @@ function Footer() {
                         <div className="list">
                             <ul>
                                 <li><a href="/contact-us">Contact Us</a></li>
-                                <li><a href="#">Sus-Plan</a></li>
+                                <li><a href="/about-organization/details">Sus-Plan</a></li>
                                 <li><a href="/faq">FAQ</a></li>
                                 <li><a href="/privacy-policy">Privacy Policy</a></li>
                                 <li><a href="/terms-and-condition">Terms & Condition</a></li>
