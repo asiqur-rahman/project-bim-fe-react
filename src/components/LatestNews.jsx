@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function LatestNews(props) {
     const [newsDetails, setNewsDetails]= useState(false);
     const [newsList, setNewsList]= useState(false);
-    const [newss, setNews]= useState(false);
+    const [news, setNews]= useState(false);
     
     const Render = () => {
         useEffect(()=>{
@@ -19,8 +19,8 @@ function LatestNews(props) {
                     }
               })
             }
-            else if (props.page && props.page == "home-page" && !newss){
-                AxiosWeb.get(`/news/homePage`)
+            else if (props.page && props.page == "home-page" && !news){
+                AxiosWeb.get(`/newsAndBlog/homePage`)
               .then(result=>{
                     window.SpinnerHide();
                     if(result.data.status==200){
@@ -138,57 +138,29 @@ function LatestNews(props) {
                         <div className="container">
                             <div className="section-title">
                                 <h2>Latest News & Blog</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec ullamcorper mattis</p>
+                                {/* <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec ullamcorper mattis</p> */}
                             </div>
                             <div className="row justify-content-center">
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-news-card">
-                                        <div className="news-img">
-                                            <a href="news-details.html"><img loading="lazy" src="/images/events/events-3.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="news-content">
-                                            <div className="list">
-                                                <ul>
-                                                    <li><i className="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
-                                                </ul>
+                                {news && news.map((item,i)=>{
+                                    return (
+                                        <div key={i} className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
+                                            <div className="single-news-card">
+                                                <div className="news-img">
+                                                    <a href={`/news-and-blog-details/${item.id}`}><img loading="lazy" src={item.files && item.files.length>0 ? item.files[0].link : "/images/events/events-3.jpg"} alt="Image" /></a>
+                                                </div>
+                                                <div className="news-content">
+                                                    <div className="list">
+                                                        <ul>
+                                                            <li><i className="flaticon-user"></i>By <a href={`/news-and-blog-details/${item.id}`}>Admin</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <a href={`/news-and-blog-details/${item.id}`}><h3>{item.newsAndBlogName}</h3></a>
+                                                    <a href={`/news-and-blog-details/${item.id}`} className="read-more-btn">Read More<i className="flaticon-next"></i></a>
+                                                </div>
                                             </div>
-                                            <a href="news-details.html"><h3>Inauguration of 3rd Batch of “Sustainability Management” training program</h3></a>
-                                            <a href="news-details.html" className="read-more-btn">Read More<i className="flaticon-next"></i></a>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400" data-aos-once="true">
-                                    <div className="single-news-card">
-                                        <div className="news-img">
-                                            <a href="news-details.html"><img loading="lazy" src="/images/events/events-2.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="news-content">
-                                            <div className="list">
-                                                <ul>
-                                                    <li><i className="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
-                                                </ul>
-                                            </div>
-                                            <a href="news-details.html"><h3>Inauguration of 2nd Batch of “Sustainability Management” training program</h3></a>
-                                            <a href="news-details.html" className="read-more-btn">Read More<i className="flaticon-next"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600" data-aos-once="true">
-                                    <div className="single-news-card">
-                                        <div className="news-img">
-                                            <a href="news-details.html"><img loading="lazy" src="/images/events/events-1.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="news-content">
-                                            <div className="list">
-                                                <ul>
-                                                    <li><i className="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
-                                                </ul>
-                                            </div>
-                                            <a href="news-details.html"><h3>Inauguration of the First Batch of “Sustainability Management” training program.</h3></a>
-                                            <a href="news-details.html" className="read-more-btn">Read More<i className="flaticon-next"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                    )
+                                })}
                             </div>
                             <div className="more-latest-news text-center">
                                 <p>Select From Other Options.<a href="latest-news.html" className="read-more-btn active"> More on News & Blog <i className="flaticon-next"></i></a></p>

@@ -105,7 +105,7 @@ function Course(props) {
                     <div className="container">
                         <div className="section-title">
                             <h2>Our Courses</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec ullamcorper mattis</p>
+                            {/* <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec ullamcorper mattis</p> */}
                         </div>
                         <div className="row justify-content-center">
 

@@ -30,7 +30,7 @@ function Navbar() {
                 <div className="desktop-nav">
                     <div className="container-fluid">
                         <nav className="navbar navbar-expand-md navbar-light">
-                            <a className="navbar-brand" href="index">
+                            <a className="navbar-brand" href="/">
                                 <img style={{ height: "52px" }} src={Logo} alt="logo" />
                             </a>
                             <div className="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
@@ -45,7 +45,7 @@ function Navbar() {
                                                     {item.menuName}
                                                 </a>
                                                 <ul className="dropdown-menu">
-                                                    
+
                                                     {item.courseTypes.map((page, j) => {
                                                         return (
                                                             <li className="nav-item" key={j}>
@@ -70,7 +70,7 @@ function Navbar() {
                                                         )
                                                     })}
 
-                                                    {item.menuBreadcrumb=="news-blogs"&&<>
+                                                    {item.menuBreadcrumb == "news-blogs" && <>
                                                         <li className="nav-item">
                                                             <Link to={`/${item.menuBreadcrumb}/news`} className="nav-link">Latest News</Link>
                                                         </li>
@@ -223,6 +223,85 @@ function Navbar() {
                             <div className="inner">
                                 <div className="icon">
                                     <i className="ri-menu-3-fill" data-bs-toggle="modal" data-bs-target="#sidebarModal"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="sidebarModal modal right fade" id="sidebarModal" role="dialog">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <button type="button" className="close" data-bs-dismiss="modal"><i className="ri-close-line"></i></button>
+                            <div className="modal-body">
+                                <a href="index.html">
+                                    <img style={{ height: "52px" }} src="/images/logo.png" className="main-logo" alt="logo" />
+                                    <img style={{ height: "52px" }} src="/images/logo.png" className="white-logo" alt="logo" />
+                                </a>
+                                <div className="sidebar-content">
+
+                                    <p>Sus-Plan project aims to aware professionals and professional bodies in developing and maintaining sustainable operations.</p>
+                                    <div className="sidebar-btn">
+                                        <a href="contact.html" className="default-btn">Let’s Talk</a>
+                                    </div>
+                                </div>
+                                <div className="sidebar-contact-info">
+                                    <h3>Contact Information</h3>
+                                    <ul className="info-list">
+                                        <li><i className="ri-phone-fill"></i> <a href="tel:9901234567">+990-123-4567</a></li>
+                                        <li><i className="ri-mail-line"></i><a href="#"><span>info@sustainability.com.bd</span></a></li>
+                                        <li><i className="ri-map-pin-line"></i> 04, Sobhanbag, Mirpur Road, <br /> Dhaka-1207, Bangladesh</li>
+                                    </ul>
+                                </div>
+                                <ul className="sidebar-social-list">
+                                    <li>
+                                        <a href="https://www.facebook.com/" target="_blank"><i className="flaticon-facebook"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.twitter.com/" target="_blank"><i className="flaticon-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://linkedin.com/?lang=en" target="_blank"><i className="flaticon-linkedin"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://instagram.com/?lang=en" target="_blank"><i className="flaticon-instagram"></i></a>
+                                    </li>
+                                </ul>
+                                <div className="contact-form">
+                                    <h3>Ready to Get Started?</h3>
+                                    <form id="contactForm">
+                                        <div className="row">
+                                            <div className="col-lg-12 col-md-6">
+                                                <div className="form-group">
+                                                    <input type="text" name="name" className="form-control" required data-error="Please enter your name" placeholder="Your name" />
+                                                    <div className="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-12 col-md-6">
+                                                <div className="form-group">
+                                                    <input type="email" name="email" className="form-control" required data-error="Please enter your email" placeholder="Your email address" />
+                                                    <div className="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-12 col-md-12">
+                                                <div className="form-group">
+                                                    <input type="text" name="phone_number" className="form-control" required data-error="Please enter your phone number" placeholder="Your phone number" />
+                                                    <div className="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-12 col-md-12">
+                                                <div className="form-group">
+                                                    <textarea name="message" className="form-control" cols="30" rows="6" required data-error="Please enter your message" placeholder="Write your message..."></textarea>
+                                                    <div className="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-12 col-md-12">
+                                                <button type="submit" className="default-btn">Send Message<span></span></button>
+                                                <div id="msgSubmit" className="h3 text-center hidden"></div>
+                                                <div className="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

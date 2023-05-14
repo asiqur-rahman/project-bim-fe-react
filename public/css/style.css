@@ -6000,3 +6000,9 @@ textarea {
     color: #e60808;
     padding-top: 7px
 }
+
+/* Custom By ASIQ */
+.modal-backdrop {
+    /* z-index: 996 !important; */
+    display: none;
+}
