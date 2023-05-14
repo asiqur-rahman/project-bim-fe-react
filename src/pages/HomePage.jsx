@@ -25,7 +25,7 @@ function HomePage() {
     <Navbar/>
     <Banner/>
     <Academic/>
-    <CampusInformation/>
+    <CampusInformation page="home-page"/>
     <CourseType page="home-page"/>
     <Admission/>
     <EventTypePage page="home-page"/>
