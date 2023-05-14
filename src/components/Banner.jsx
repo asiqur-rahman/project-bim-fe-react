@@ -1,6 +1,21 @@
 import HeroSlider, { Slide, Nav } from "hero-slider";
+import { useEffect,useState } from 'react'
+import Axios, {web as AxiosWeb} from '../helper/axios'
 
 function Banner() {
+
+    const [sliders, setSliders]= useState([]);
+    
+    useEffect(() => {
+        AOS.init();
+        AxiosWeb.get(`/page/homePage`)
+        .then(result=>{
+            window.SpinnerHide();
+            if(result.data.status==200 && result.data.data.homePageSlider && result.data.data.homePageSlider.length>0) {
+                setSliders(result.data.data.homePageSlider);
+            }
+        })
+    }, []);
 
     return (
         <>
@@ -23,24 +38,29 @@ function Banner() {
                         console.debug("onAfterSliding(nextSlide): ", nextSlide)
                 }}
             >
-                <Slide
-                    shouldRenderMask
-                    navDescription="ADP 2022"
-                    background={{
-                        backgroundImageSrc: "/images/banner/banner-1.jpg"
-                    }}
-                >
-                    {/* <div className="slider-item banner-bg-1"> */}
-                    <div className="slider-item banner-bg-1">
-                        <div className="container-fluid">
-                            <div className="slider-content">
-                                <h1>Leadership in Sustainability</h1>
-                                <a href="courses.html" className="default-btn btn">Start a Journey <i className="flaticon-next"></i></a>
+                {sliders && sliders.map((item,i)=>{
+                    return (
+                        <Slide
+                            shouldRenderMask
+                            navDescription="ADP 2022"
+                            background={{
+                                backgroundImageSrc: item.sliderImage
+                            }}
+                        >
+                            {/* <div className="slider-item banner-bg-1"> */}
+                            <div className="slider-item">
+                                <div className="container-fluid">
+                                    <div className="slider-content">
+                                        <h1>{item.sliderText}</h1>
+                                        <a href="courses.html" className="default-btn btn">Start a Journey <i className="flaticon-next"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </Slide>
-                <Slide
+                        </Slide>
+                    )
+                })}
+                
+                {/* <Slide
                     shouldRenderMask
                     navDescription="ADP 2022"
                     background={{
@@ -183,7 +203,7 @@ function Banner() {
                             </div>
                         </div>
                     </div>
-                </Slide>
+                </Slide> */}
                 <Nav />
             </HeroSlider>
         </>
