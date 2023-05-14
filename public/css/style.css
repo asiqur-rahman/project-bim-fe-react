@@ -6006,3 +6006,7 @@ textarea {
     /* z-index: 996 !important; */
     display: none;
 }
+
+.hero-slider-slide-mask{
+    display:none !important;
+}
