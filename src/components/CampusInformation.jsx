@@ -1,29 +1,103 @@
-function CampusInformation() {
+import { useEffect,useState } from 'react'
+import Axios, {web as AxiosWeb} from '../helper/axios'
+import { Link } from "react-router-dom";
+
+function CampusInformation(props) {
+
+    const [details, setDetails]= useState(false);
+
+    const Render = () => {
+
+        useEffect(() => {
+            if(props.page && !details){
+                AOS.init();
+                AxiosWeb.get(`/page/aboutOrg`)
+                .then(result=>{
+                      window.SpinnerHide();
+                      if(result.data.status==200){
+                          if(result.data.data)setDetails(result.data.data);
+                          else setDetails([]);
+                      }
+                })
+                .catch(e=>{
+                    console.log(e)
+                })
+            }
+            
+        }, [props.page]);
+
+        useEffect(() => {
+            AOS.init();
+        }, []);
+
+        return (
+            <>
+                {props.page && props.page == "details" && <>
+                    <div className="page-banner-area bg-2">
+                        <div className="container">
+                            <div className="page-banner-content">
+                                <h1>Sus-Plan</h1>
+                                <ul>
+                                    <li><a href="#">About Us</a></li>
+                                    <li>Sus-Plan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="campus-information-area pb-70">
+                        <div className="container">
+                            <div className="row align-items-center">
+                                <div className="col-lg-12" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
+                                    <div className="campus-image pl-20" style={{textAlign:"center"}}>
+                                        <img loading="lazy" src={details && details.files.length>0 ? details.files[0].link : "/images/campus-information/campus-1.jpg"} alt="Image" />
+                                    </div>
+                                </div>
+                                <div className="col-lg-12" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
+                                    <div className="campus-content pr-20">
+                                        <div className="campus-title">
+                                            <h2>{details ? details.organizationName:''}</h2>
+                                            <p style={{ textAlign: "justify" }} dangerouslySetInnerHTML={{ __html: details.organizationOverview }}></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </>}
+
+                {props.page && props.page == "home-page" && <>
+
+                <div className="campus-information-area pb-70">
+                        <div className="container">
+                            <div className="row align-items-center">
+                                <div className="col-lg-6" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
+                                    <div className="campus-content pr-20">
+                                        <div className="campus-title">
+                                            <h2>{details ? details.organizationName:''}</h2>
+                                            <p style={{ textAlign: "justify", maxHeight:"230px", overflow: "hidden" }}dangerouslySetInnerHTML={{ __html: details.organizationOverview }}></p>
+                                        </div>
+                                        <a href="/about-organization/details" className="default-btn btn">Read More<i className="flaticon-next"></i></a>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
+                                    <div className="campus-image pl-20">
+                                        <img loading="lazy" src={details && details.files.length>0 ? details.files[0].link : "/images/campus-information/campus-1.jpg"} alt="Image" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </>}
+
+            </>
+        )
+    }
 
     return (
-        <div className="campus-information-area pb-70">
-        <div className="container">
-            <div className="row align-items-center">
-                <div className="col-lg-6" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
-                    <div className="campus-content pr-20">
-                        <div className="campus-title">
-                            <h2>Sus-Plan</h2>
-                            <p style={{textAlign:"justify"}}>Sus-Plan is a project, introducing on 1 November 2022 with a tenure of 2 years, till 31 October 2024. It is a collaboration between Bangladesh Institute of Management (BIM) and German development agency, The Deutsche Gesellschaft für Internationale Zusammenarbeit GmbH (GiZ). BIM works under the Ministry of Industries, the People’s Republic of Bangladesh and GiZ operates under German Federal Ministry for Economic Cooperation and Development (BMZ).</p>
-                            <p style={{textAlign:"justify"}}>
-                                Inaugurated through an MoU (Memorandum of Understanding) between Ms. Tahmina Akhter, Director General, BIM and Additional Secretary of the People’s Republic of Bangladesh and Dr Christian Bochmann, Program Manager of Higher Education and Leadership Development for Sustainable Textiles in Bangladesh (HELD), GiZ on 13 September 2022.
-                            </p>
-                        </div>
-                        <a href="susplan.html" className="default-btn btn">Read More<i className="flaticon-next"></i></a>
-                    </div>
-                </div>
-                <div className="col-lg-6" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
-                    <div className="campus-image pl-20">
-                        <img loading="lazy" src="/images/campus-information/campus-1.jpg" alt="Image"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <>
+            {props.page && <Render />}
+        </>
     )
 }
 
