@@ -59,7 +59,7 @@ function Events(props) {
                                             <div className="col-lg-4 col-md-6">
                                                 <div className="single-events-card style-4">
                                                     <div className="events-image">
-                                                        <a href={`/event-details/${item.id}`}><img src="/images/events/events-3.jpg" alt="Image" /></a>
+                                                        <a href={`/event-details/${item.id}`}><img src="/images/events/events-3.jpg" alt="Image" style={{minWidth:"-webkit-fill-available"}}/></a>
                                                         <div className="date">
                                                             <span>{new Date(item.eventDate).getDate()}</span>
                                                             <p>{new Date(item.eventDate).toLocaleString('default', { month: 'short' })} {new Date(item.eventDate).getFullYear()}</p>
@@ -135,153 +135,7 @@ function Events(props) {
                     </>}
                 </>}
 
-                {props.page && props.page == "workshops" && <>
-                    <div className="page-banner-area bg-1">
-                        <div className="container">
-                            <div className="page-banner-content">
-                                <h1>Workshops</h1>
-                                <ul>
-                                    <li><a href="#">Events</a></li>
-                                    <li>Workshops</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="courses-area ptb-100 bg-f4f6f9">
-                        <div className="container">
-                            <div className="row justify-content-center">
-
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="training-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="courses-content">
-                                            <a href="training-courses.html"><h3>Training Courses</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="certificate-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="courses-content">
-                                            <a href="certificate-courses.html"><h3>Certificate Courses</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="diploma-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="courses-content">
-                                            <a href="diploma-courses.html"><h3>Diploma Courses</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="pgd-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="courses-content">
-                                            <a href="pgd-courses.html"><h3>PGD Courses</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="research-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="courses-content">
-                                            <a href="research-courses.html"><h3>Research Courses</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </>}
-
-                {props.page && props.page == "collaboration" && <>
-                    <div className="page-banner-area bg-1">
-                        <div className="container">
-                            <div className="page-banner-content">
-                                <h1>Collaboration</h1>
-                                <ul>
-                                    <li><a href="#">Events</a></li>
-                                    <li>Collaboration</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="courses-area ptb-100 bg-f4f6f9">
-                        <div className="container">
-                            <div className="row justify-content-center">
-
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="training-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="courses-content">
-                                            <a href="training-courses.html"><h3>Training Courses</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="certificate-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="courses-content">
-                                            <a href="certificate-courses.html"><h3>Certificate Courses</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="diploma-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="courses-content">
-                                            <a href="diploma-courses.html"><h3>Diploma Courses</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="pgd-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="courses-content">
-                                            <a href="pgd-courses.html"><h3>PGD Courses</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
-                                    <div className="single-courses-card">
-                                        <div className="courses-img">
-                                            <a href="research-courses.html"><img loading="lazy" src="/images/courses/courses-1.jpg" alt="Image" /></a>
-                                        </div>
-                                        <div className="courses-content">
-                                            <a href="research-courses.html"><h3>Research Courses</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </>}
-
-                {props.page && props.page == "home-page" && <>
+                {props.page && props.page == "home-page" && events.length>0 && <>
                     <div className="events-area bg-f4f6f9 ptb-100">
                         <div className="container">
                             <div className="section-title">
@@ -294,7 +148,7 @@ function Events(props) {
                                         <div className="col-lg-4 col-md-6" key={i}>
                                             <div className="single-events-card style-4">
                                                 <div className="events-image">
-                                                    <a href="events-details.html"><img loading="lazy" src={item.files && item.files.length>0 ? item.files[0].link:"/images/events/events-2.jpg"} alt="Image" /></a>
+                                                    <a href="events-details.html"><img loading="lazy" src={item.files && item.files.length>0 ? item.files[0].link:"/images/events/events-2.jpg"} alt="Image" style={{minWidth:"-webkit-fill-available"}}/></a>
                                                     <div className="date">
                                                         <span>{new Date(item.eventDate).getDate()}</span>
                                                         <p>{new Date(item.eventDate).toLocaleString('default', { month: 'short' })} {new Date(item.eventDate).getFullYear()}</p>

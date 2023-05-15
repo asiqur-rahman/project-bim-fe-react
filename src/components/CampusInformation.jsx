@@ -66,12 +66,12 @@ function CampusInformation(props) {
                     </div>
                 </>}
 
-                {props.page && props.page == "home-page" && <>
+                {props.page && props.page == "home-page" && details && <>
 
                 <div className="campus-information-area pb-70">
                         <div className="container">
                             <div className="row align-items-center">
-                                <div className="col-lg-6" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
+                                <div className={details && details.files.length>0 ? "col-lg-6":"col-lg-12"} data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
                                     <div className="campus-content pr-20">
                                         <div className="campus-title">
                                             <h2>{details ? details.organizationName:''}</h2>
@@ -80,11 +80,14 @@ function CampusInformation(props) {
                                         <a href="/about-organization/details" className="default-btn btn">Read More<i className="flaticon-next"></i></a>
                                     </div>
                                 </div>
+
+                                {details && details.files.length>0 &&
                                 <div className="col-lg-6" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
                                     <div className="campus-image pl-20">
-                                        <img loading="lazy" src={details && details.files.length>0 ? details.files[0].link : "/images/campus-information/campus-1.jpg"} alt="Image" />
+                                        <img loading="lazy" src={details.files[0].link} alt="Image" />
                                     </div>
-                                </div>
+                                </div>}
+
                             </div>
                         </div>
                     </div>

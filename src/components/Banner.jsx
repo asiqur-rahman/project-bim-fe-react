@@ -11,7 +11,7 @@ function Banner() {
         AxiosWeb.get(`/page/homePage`)
         .then(result=>{
             window.SpinnerHide();
-            if(result.data.status==200 && result.data.data.homePageSlider && result.data.data.homePageSlider.length>0) {
+            if(result.data.status==200 && result.data.data && result.data.data.homePageSlider && result.data.data.homePageSlider.length>0) {
                 setSliders(result.data.data.homePageSlider);
             }
         })
@@ -38,7 +38,7 @@ function Banner() {
                         console.debug("onAfterSliding(nextSlide): ", nextSlide)
                 }}
             >
-                {sliders && sliders.map((item,i)=>{
+                {sliders.length>0 ? sliders.map((item,i)=>{
                     return (
                         <Slide
                             shouldRenderMask
@@ -58,7 +58,27 @@ function Banner() {
                             </div>
                         </Slide>
                     )
-                })}
+                })
+                :
+                <>
+                    <Slide
+                        shouldRenderMask
+                        navDescription="ADP 2022"
+                        background={{
+                            backgroundImageSrc: "/images/banner/banner-2.jpg"
+                        }}
+                    >
+                        <div className="slider-item">
+                            <div className="container-fluid">
+                                <div className="slider-content">
+                                    <h1>Sustainable Innovation</h1>
+                                    <a href="courses.html" className="default-btn btn">Start a Journey <i className="flaticon-next"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </Slide>
+                </>
+                }
                 
                 {/* <Slide
                     shouldRenderMask
