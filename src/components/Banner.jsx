@@ -8,7 +8,7 @@ function Banner() {
     
     useEffect(() => {
         AOS.init();
-        AxiosWeb.get(`/page/homePage`)
+        AxiosWeb.get(`/page/homePageSlider`)
         .then(result=>{
             window.SpinnerHide();
             if(result.data.status==200 && result.data.data && result.data.data.homePageSlider && result.data.data.homePageSlider.length>0) {
