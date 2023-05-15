@@ -66,7 +66,7 @@ function CampusInformation(props) {
                     </div>
                 </>}
 
-                {props.page && props.page == "home-page" && details && <>
+                {props.page && props.page == "home-page" && details.organizationName && <>
 
                 <div className="campus-information-area pb-70">
                         <div className="container">
