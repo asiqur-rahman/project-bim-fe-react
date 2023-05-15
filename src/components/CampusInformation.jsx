@@ -71,7 +71,7 @@ function CampusInformation(props) {
                 <div className="campus-information-area pb-70">
                         <div className="container">
                             <div className="row align-items-center">
-                                <div className={details && details.files.length>0 ? "col-lg-6":"col-lg-12"} data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
+                                <div className={details.files && details.files.length>0 ? "col-lg-6":"col-lg-12"} data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
                                     <div className="campus-content pr-20">
                                         <div className="campus-title">
                                             <h2>{details ? details.organizationName:''}</h2>
@@ -81,7 +81,7 @@ function CampusInformation(props) {
                                     </div>
                                 </div>
 
-                                {details && details.files.length>0 &&
+                                {details.files && details.files.length>0 &&
                                 <div className="col-lg-6" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
                                     <div className="campus-image pl-20">
                                         <img loading="lazy" src={details.files[0].link} alt="Image" />
