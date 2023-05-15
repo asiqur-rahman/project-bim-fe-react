@@ -100,7 +100,7 @@ function Course(props) {
             </>} 
             </>}
 
-            {props.page && props.page == "home-page" && <>
+            {props.page && props.page == "home-page" && courseTypes.length>0 && <>
                 <div className="courses-area ptb-100 bg-f4f6f9">
                     <div className="container">
                         <div className="section-title">

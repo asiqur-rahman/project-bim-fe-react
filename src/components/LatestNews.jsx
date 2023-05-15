@@ -133,7 +133,7 @@ function LatestNews(props) {
                     </div>
                 </>}
 
-                {props.page && props.page == "home-page" && <>
+                {props.page && props.page == "home-page" && news.length>0 && <>
                     <div className="lates-news-area ptb-100">
                         <div className="container">
                             <div className="section-title">
