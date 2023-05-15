@@ -1,6 +1,5 @@
 import { useEffect,useState } from 'react'
 import Axios, {web as AxiosWeb} from '../helper/axios'
-import { Link } from "react-router-dom";
 
 function Blogs(props) {
     const [blogDetails, setBlogDetails]= useState(false);
@@ -78,61 +77,9 @@ function Blogs(props) {
                                                         </div>
                                                     )
                                                 })}
-                                                
-                                                {/* <div className="col-lg-6 col-md-6">
-                                                    <div className="single-news-card">
-                                                        <div className="news-img">
-                                                            <a href={`/news-and-blog-details/${item.id}`}><img src="/images/news/news-3.jpg" alt="Image" /></a>
-                                                        </div>
-                                                        <div className="news-content">
-                                                            <div className="list">
-                                                                <ul>
-                                                                    <li><i className="flaticon-user"></i>By <a href={`/news-and-blog-details/${item.id}`}>Admin</a></li>
-                                                                    <li><i className="flaticon-tag"></i>Social Sciences</li>
-                                                                </ul>
-                                                            </div>
-                                                            <a href={`/news-and-blog-details/${item.id}`}><h3>How To Use Technology To Adapt Your Talent To The World</h3></a>
-                                                            <a href={`/news-and-blog-details/${item.id}`} className="read-more-btn">Read More<i className="flaticon-next"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-6 col-md-6">
-                                                    <div className="single-news-card">
-                                                        <div className="news-img">
-                                                            <a href={`/news-and-blog-details/${item.id}`}><img src="/images/news/news-6.jpg" alt="Image" /></a>
-                                                        </div>
-                                                        <div className="news-content">
-                                                            <div className="list">
-                                                                <ul>
-                                                                    <li><i className="flaticon-user"></i>By <a href={`/news-and-blog-details/${item.id}`}>Admin</a></li>
-                                                                    <li><i className="flaticon-tag"></i>Social Sciences</li>
-                                                                </ul>
-                                                            </div>
-                                                            <a href={`/news-and-blog-details/${item.id}`}><h3>Here Are The Things To Look For When Selecting Course</h3></a>
-                                                            <a href={`/news-and-blog-details/${item.id}`} className="read-more-btn">Read More<i className="flaticon-next"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-6 col-md-6">
-                                                    <div className="single-news-card">
-                                                        <div className="news-img">
-                                                            <a href={`/news-and-blog-details/${item.id}`}><img src="/images/news/news-7.jpg" alt="Image" /></a>
-                                                        </div>
-                                                        <div className="news-content">
-                                                            <div className="list">
-                                                                <ul>
-                                                                    <li><i className="flaticon-user"></i>By <a href={`/news-and-blog-details/${item.id}`}>Admin</a></li>
-                                                                    <li><i className="flaticon-tag"></i>Social Sciences</li>
-                                                                </ul>
-                                                            </div>
-                                                            <a href={`/news-and-blog-details/${item.id}`}><h3>Professor Tom Comments On The Volunteer B. Snack Brand</h3></a>
-                                                            <a href={`/news-and-blog-details/${item.id}`} className="read-more-btn">Read More<i className="flaticon-next"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div> */}
                                             </div>
                                         </div>
-                                        <div className="paginations">
+                                        {/* <div className="paginations">
                                             <ul>
                                                 <li><a href="latest-news.html"><i className="flaticon-back"></i></a></li>
                                                 <li><a href="latest-news.html" className="active">01</a></li>
@@ -140,7 +87,7 @@ function Blogs(props) {
                                                 <li><a href="latest-news.html">03</a></li>
                                                 <li><a href="latest-news.html"><i className="flaticon-next"></i></a></li>
                                             </ul>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
