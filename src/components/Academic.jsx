@@ -41,7 +41,7 @@ function Academic() {
                                     <p>
                                         {item.wcuDescription}
                                     </p>
-                                    <a href="#" className="read-more-btn">{item.wcuShortNote}<i className="flaticon-next"></i></a>
+                                    <a href="#" className="read-more-btn">{item.wcuTitle}<i className="flaticon-next"></i></a>
                                 </div>
                             </div>
                             )
