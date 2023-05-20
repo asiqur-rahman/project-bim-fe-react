@@ -41,6 +41,7 @@ function Banner() {
                 {sliders.length>0 ? sliders.map((item,i)=>{
                     return (
                         <Slide
+                            key={i}
                             shouldRenderMask
                             navDescription="ADP 2022"
                             background={{
