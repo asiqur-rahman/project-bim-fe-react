@@ -5,11 +5,22 @@ import Axios, { web as AxiosWeb } from '../helper/axios'
 
 function Navbar() {
     const [menu, setMenu] = useState(false);
+    const [pageDetails, setPageDetails] = useState(false)
     useEffect(() => {
         AxiosWeb.get("/menuHead/menu")
             .then(result => {
                 if (result.data.status == 200)
                     setMenu(result.data.data)
+        })
+
+        AxiosWeb.get(`/footerPage/contactUS`)
+            .then(result => {
+                if (result.data.status == 200) {
+                    window.SpinnerHide();
+                    if (result.data.data.footerPageDetails && result.data.data.footerPageDetails.length > 0) {
+                        setPageDetails(JSON.parse(result.data.data.footerPageDetails))
+                    }
+                }
             })
     }, [])
     return (
@@ -240,7 +251,7 @@ function Navbar() {
                                 </a>
                                 <div className="sidebar-content">
 
-                                    <p>Sus-Plan project aims to aware professionals and professional bodies in developing and maintaining sustainable operations.</p>
+                                    <p>{pageDetails.contactDetails}</p>
                                     <div className="sidebar-btn">
                                         <a href="contact.html" className="default-btn">Let’s Talk</a>
                                     </div>
@@ -248,23 +259,23 @@ function Navbar() {
                                 <div className="sidebar-contact-info">
                                     <h3>Contact Information</h3>
                                     <ul className="info-list">
-                                        <li><i className="ri-phone-fill"></i> <a href="tel:9901234567">+990-123-4567</a></li>
-                                        <li><i className="ri-mail-line"></i><a href="#"><span>info@sustainability.com.bd</span></a></li>
-                                        <li><i className="ri-map-pin-line"></i> 04, Sobhanbag, Mirpur Road, <br /> Dhaka-1207, Bangladesh</li>
+                                        <li><i className="ri-phone-fill"></i> <a href={`tel:${pageDetails.contactNo}`}>{pageDetails.contactNo}</a></li>
+                                        <li><i className="ri-mail-line"></i><a href="#"><span>{pageDetails.email}</span></a></li>
+                                        <li><i className="ri-map-pin-line"></i> {pageDetails.address}</li>
                                     </ul>
                                 </div>
                                 <ul className="sidebar-social-list">
                                     <li>
-                                        <a href="https://www.facebook.com/" target="_blank"><i className="flaticon-facebook"></i></a>
+                                        <a href={pageDetails.fbLink} target="_blank"><i className="flaticon-facebook"></i></a>
                                     </li>
                                     <li>
-                                        <a href="https://www.twitter.com/" target="_blank"><i className="flaticon-twitter"></i></a>
+                                        <a href={pageDetails.twiLink} target="_blank"><i className="flaticon-twitter"></i></a>
                                     </li>
                                     <li>
-                                        <a href="https://linkedin.com/?lang=en" target="_blank"><i className="flaticon-linkedin"></i></a>
+                                        <a href={pageDetails.linkLink} target="_blank"><i className="flaticon-linkedin"></i></a>
                                     </li>
                                     <li>
-                                        <a href="https://instagram.com/?lang=en" target="_blank"><i className="flaticon-instagram"></i></a>
+                                        <a href={pageDetails.insLink} target="_blank"><i className="flaticon-instagram"></i></a>
                                     </li>
                                 </ul>
                                 <div className="contact-form">

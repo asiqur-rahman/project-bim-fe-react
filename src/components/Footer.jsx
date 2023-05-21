@@ -1,5 +1,19 @@
-function Footer() {
+import React, { useState, useEffect } from "react"
+import Axios, { web as AxiosWeb } from '../helper/axios'
 
+function Footer() {
+    const [pageDetails, setPageDetails] = useState(false)
+    useEffect(() => {
+        AxiosWeb.get(`/footerPage/contactUS`)
+            .then(result => {
+                if (result.data.status == 200) {
+                    window.SpinnerHide();
+                    if (result.data.data.footerPageDetails && result.data.data.footerPageDetails.length > 0) {
+                        setPageDetails(JSON.parse(result.data.data.footerPageDetails))
+                    }
+                }
+            })
+    }, [])
     return (
         <>
         <div className="footer-area pt-100 pb-70">
@@ -46,15 +60,13 @@ function Footer() {
                             <ul>
                                 <li>
                                     <p>
-                                        04, Sobhanbag, Mirpur Road, Dhaka-1207, Bangladesh
+                                        {pageDetails.address}
                                     </p>
                                 </li>
                                 <li>
-                                    <a href="tel:01616-642525">
-                                        01616-642525
-                                    </a>
+                                    <a href={`tel:${pageDetails.contactNo}`}>{pageDetails.contactNo}</a>
                                 </li>
-                                <li><a href="#"><span>info@sustainability.com.bd</span></a></li>
+                                <li><a href="#"><span>{pageDetails.email}</span></a></li>
                             </ul>
                         </div>
                     </div>

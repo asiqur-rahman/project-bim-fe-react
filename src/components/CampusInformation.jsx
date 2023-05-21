@@ -50,7 +50,7 @@ function CampusInformation(props) {
                             <div className="row align-items-center">
                                 <div className="col-lg-12" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
                                     <div className="campus-image pl-20" style={{textAlign:"center"}}>
-                                        <img loading="lazy" src={details && details.files.length>0 ? details.files[0].link : "/images/campus-information/campus-1.jpg"} alt="Image" />
+                                        <img loading="lazy" style={{maxHeight:"500px"}} src={details && details.files.length>0 ? details.files[0].link : "/images/campus-information/campus-1.jpg"} alt="Image" />
                                     </div>
                                 </div>
                                 <div className="col-lg-12" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
@@ -75,7 +75,7 @@ function CampusInformation(props) {
                                     <div className="campus-content pr-20">
                                         <div className="campus-title">
                                             <h2>{details ? details.organizationName:''}</h2>
-                                            <p style={{ textAlign: "justify", maxHeight:"230px", overflow: "hidden" }}dangerouslySetInnerHTML={{ __html: details.organizationOverview }}></p>
+                                            <p style={{ textAlign: "justify", maxHeight:"220px", overflow: "hidden" }}dangerouslySetInnerHTML={{ __html: details.organizationOverview }}></p>
                                         </div>
                                         <a href="/about-organization/details" className="default-btn btn">Read More<i className="flaticon-next"></i></a>
                                     </div>
