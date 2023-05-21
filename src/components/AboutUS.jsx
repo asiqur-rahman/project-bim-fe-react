@@ -36,7 +36,7 @@ function AboutUS(props) {
             <div className="row align-items-center">
                 {pageDetails && pageDetails.files.length>0 &&
                 <div class="events-image">
-                    <img src={pageDetails.files[0].link} alt="Image" loading='lazy'/>
+                    <img src={pageDetails.files[0].link} alt="Image" loading='lazy' style={{maxHeight:"500px"}}/>
                 </div>
                 }
                 <div className="col-lg-12" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
