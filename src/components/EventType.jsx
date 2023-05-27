@@ -148,10 +148,13 @@ function Events(props) {
                                         <div className="col-lg-4 col-md-6" key={i}>
                                             <div className="single-events-card style-4">
                                                 <div className="events-image">
-                                                    <a href="events-details.html"><img loading="lazy" src={item.files && item.files.length>0 ? item.files[0].link:"/images/events/events-2.jpg"} alt="Image" style={{minWidth:"-webkit-fill-available"}}/></a>
+                                                    <Link to={`/event-details/${item.id}`}><img loading="lazy" src={item.files && item.files.length>0 ? item.files[0].link:"/images/events/events-2.jpg"} alt="Image" style={{minWidth:"-webkit-fill-available"}}/></Link>
                                                     <div className="date">
                                                         <span>{new Date(item.eventDate).getDate()}</span>
                                                         <p>{new Date(item.eventDate).toLocaleString('default', { month: 'short' })} {new Date(item.eventDate).getFullYear()}</p>
+                                                    </div>
+                                                    <div className="typeName">
+                                                        <p style={{margin:"0", fontSize:"12px", fontWeight:"bold"}}>{item['eventType.eventTypeName']}</p>
                                                     </div>
                                                 </div>
                                                 <div className="events-content">

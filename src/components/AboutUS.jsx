@@ -34,7 +34,7 @@ function AboutUS(props) {
         <div className="campus-information-area pt-70 pb-70">
         <div className="container">
             <div className="row align-items-center">
-                {pageDetails && pageDetails.files.length>0 &&
+                {pageDetails && pageDetails.files && pageDetails.files.length>0 &&
                 <div class="events-image">
                     <img src={pageDetails.files[0].link} alt="Image" loading='lazy' style={{maxHeight:"500px"}}/>
                 </div>

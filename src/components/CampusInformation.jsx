@@ -1,6 +1,5 @@
 import { useEffect,useState } from 'react'
 import Axios, {web as AxiosWeb} from '../helper/axios'
-import { Link } from "react-router-dom";
 
 function CampusInformation(props) {
 
@@ -50,7 +49,7 @@ function CampusInformation(props) {
                             <div className="row align-items-center">
                                 <div className="col-lg-12" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">
                                     <div className="campus-image pl-20" style={{textAlign:"center"}}>
-                                        <img loading="lazy" style={{maxHeight:"500px"}} src={details && details.files.length>0 ? details.files[0].link : "/images/campus-information/campus-1.jpg"} alt="Image" />
+                                        <img loading="lazy" style={{maxHeight:"500px"}} src={details && details.files && details.files.length>0 ? details.files[0].link : "/images/campus-information/campus-1.jpg"} alt="Image" />
                                     </div>
                                 </div>
                                 <div className="col-lg-12" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300" data-aos-once="true">

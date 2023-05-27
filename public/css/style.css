@@ -3879,6 +3879,19 @@ textarea {
     border-radius: 5px
 }
 
+
+.single-events-card .events-image .typeName {
+    background-color: #fff;
+    position: absolute;
+    bottom: 10px;
+    /* bottom: -10px; */
+    left: 230px;
+    padding: 5px 10px;
+    -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, .05);
+    box-shadow: 0 0 20px 3px rgba(0, 0, 0, .05);
+    border-radius: 5px
+}
+
 .single-events-card .events-image .date span {
     font-size: 18px;
     color: #e32845;
