@@ -56,7 +56,7 @@ function Events(props) {
                                 <div className="row justify-content-center">
                                     {eventTypeDetails.events.map((item, i) => {
                                         return (
-                                            <div className="col-lg-4 col-md-6">
+                                            <div key={i} className="col-lg-4 col-md-6">
                                                 <div className="single-events-card style-4">
                                                     <div className="events-image">
                                                         <a href={`/event-details/${item.id}`}><img src="/images/events/events-3.jpg" alt="Image" style={{minWidth:"-webkit-fill-available"}}/></a>

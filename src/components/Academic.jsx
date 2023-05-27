@@ -32,7 +32,7 @@ function Academic() {
                     
                         {sliders.map((item,i)=>{
                             return (
-                                <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
+                                <div key={i} className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-once="true">
                                 <div className="single-academics-card" key={i}>
                                     <div className="academic-top-content">
                                         <i className={item.wcuIcon}></i>
