@@ -54,11 +54,11 @@ function Footer() {
                             <ul>
                                 {menu && menu.map((item,i)=>{
                                     return (
-                                        <>{item.menuBreadcrumb=="study" && item.courseTypes.map((course,j)=>{
+                                        <div key={i}>{item.menuBreadcrumb=="study" && item.courseTypes.map((course,j)=>{
                                             return (
                                                 <li key={j}><Link to={`/course-type/${course.id}`} className="nav-link">{course.courseTypeName}</Link></li>
                                             )
-                                        })}</>
+                                        })}</div>
                                     )
                                 })}
                             </ul>
