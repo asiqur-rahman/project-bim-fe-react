@@ -56,7 +56,11 @@ function Navbar() {
                                                     {item.menuName}
                                                 </a>
                                                 <ul className="dropdown-menu">
-
+                                                    {item.menuBreadcrumb == 'about-us' &&
+                                                        <li className="nav-item">
+                                                            <Link to={`/about-organization/details`} className="nav-link">Sus-plan</Link>
+                                                        </li>
+                                                    }
                                                     {item.courseTypes.map((page, j) => {
                                                         return (
                                                             <li className="nav-item" key={j}>

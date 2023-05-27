@@ -75,7 +75,7 @@ function CampusInformation(props) {
                                     <div className="campus-content pr-20">
                                         <div className="campus-title">
                                             <h2>{details ? details.organizationName:''}</h2>
-                                            <p style={{ textAlign: "justify", maxHeight:"220px", overflow: "hidden" }}dangerouslySetInnerHTML={{ __html: details.organizationOverview }}></p>
+                                            <p style={{ textAlign: "justify", maxHeight:"220px", overflow: "hidden" }}dangerouslySetInnerHTML={{ __html: details.organizationShortOverview }}></p>
                                         </div>
                                         <a href="/about-organization/details" className="default-btn btn">Read More<i className="flaticon-next"></i></a>
                                     </div>
