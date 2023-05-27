@@ -5,6 +5,52 @@ function Story(props) {
 
     const [pageDetails, setPageDetails] = useState(false)
 
+    const [webMessageName, setWebMessageName] = useState('')
+    const [webMessageEmail, setWebMessageEmail] = useState('')
+    const [webMessagePhoneNo, setWebMessagePhoneNo] = useState('')
+    const [webMessageSubject, setWebMessageSubject] = useState('')
+    const [webMessageMessage, setWebMessageMessage] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevents the default form submission behavior
+      
+        // Perform validation checks
+        if (webMessageName.trim() === '') {
+          // Handle name validation error
+          return;
+        }
+        else if (webMessageEmail.trim() === '') {
+            // Handle name validation error
+            return;
+        }
+        else if (webMessagePhoneNo.trim() === '') {
+            // Handle name validation error
+            return;
+        }
+        else if (webMessageMessage.trim() === '') {
+            // Handle name validation error
+            return;
+        }
+        const body ={
+            webMessageName:webMessageName,
+            webMessageEmail:webMessageEmail,
+            webMessagePhoneNo:webMessagePhoneNo,
+            webMessageSubject:webMessageSubject,
+            webMessageMessage:webMessageMessage
+        }
+        AxiosWeb.post("/web-message",body)
+        .then(result => {
+            if (result.data.status == 201){
+                setWebMessageName('');
+                setWebMessageEmail('');
+                setWebMessagePhoneNo('');
+                setWebMessageSubject('');
+                setWebMessageMessage('');
+                alert("Thank you so much for your message !")
+            }
+        })
+    };
+
     useEffect(() => {
         AxiosWeb.get(`/footerPage/contactUS`)
             .then(result => {
@@ -38,40 +84,40 @@ function Story(props) {
                         <div className="col-lg-6">
                             <div className="contacts-form">
                                 <h3>Leave a message</h3>
-                                <form id="contactForm">
+                                <form id="contactForm" onSubmit={handleSubmit}>
                                     <div className="row">
                                         <div className="col-lg-6 col-sm-6">
                                             <div className="form-group">
                                                 <label>Your name</label>
-                                                <input type="text" name="name" id="name" className="form-control" required data-error="Please enter your name" />
+                                                <input type="text" name="name" value={webMessageName} onChange={(e)=>setWebMessageName(e.target.value)} id="name" className="form-control" required data-error="Please enter your name" />
                                                 <div className="help-block with-errors"></div>
                                             </div>
                                         </div>
                                         <div className="col-lg-6 col-sm-6">
                                             <div className="form-group">
                                                 <label>Your email</label>
-                                                <input type="email" name="email" id="email" className="form-control" required data-error="Please enter your email" />
+                                                <input type="email" name="email" value={webMessageEmail} onChange={(e)=>setWebMessageEmail(e.target.value)} id="email" className="form-control" required data-error="Please enter your email" />
                                                 <div className="help-block with-errors"></div>
                                             </div>
                                         </div>
                                         <div className="col-lg-6 col-sm-6">
                                             <div className="form-group">
                                                 <label>Your phone</label>
-                                                <input type="text" name="phone_number" id="phone_number" required data-error="Please enter your number" className="form-control" />
+                                                <input type="text" name="phone_number" value={webMessagePhoneNo} onChange={(e)=>setWebMessagePhoneNo(e.target.value)} id="phone_number" required data-error="Please enter your number" className="form-control" />
                                                 <div className="help-block with-errors"></div>
                                             </div>
                                         </div>
                                         <div className="col-lg-6 col-sm-6">
                                             <div className="form-group">
                                                 <label>Subject</label>
-                                                <input type="text" name="msg_subject" id="msg_subject" className="form-control" required data-error="Please enter your subject" />
+                                                <input type="text" name="msg_subject" value={webMessageSubject} onChange={(e)=>setWebMessageSubject(e.target.value)} id="msg_subject" className="form-control" required data-error="Please enter your subject" />
                                                 <div className="help-block with-errors"></div>
                                             </div>
                                         </div>
                                         <div className="col-12">
                                             <div className="form-group">
                                                 <label>Your message</label>
-                                                <textarea name="message" className="form-control" id="message" cols="30" rows="8" required data-error="Write your message"></textarea>
+                                                <textarea name="message" className="form-control" id="message" cols="30" rows="8" required data-error="Write your message" onChange={(e)=>setWebMessageMessage(e.target.value)}>{webMessageMessage}</textarea>
                                                 <div className="help-block with-errors"></div>
                                             </div>
                                         </div>

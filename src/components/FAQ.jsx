@@ -54,12 +54,12 @@ function Story(props) {
                                         <div className="accordion-item" key={i}>
                                             <h2 className="accordion-header" id="headingOne">
                                                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${i}`} aria-expanded="true" aria-controls="collapseOne">
-                                                    {`${i+1}. ${item.question}`}
+                                                    {`${i+1}. ${item.faqQuestion}`}
                                                 </button>
                                             </h2>
                                             <div id={`collapse${i}`} className={`accordion-collapse collapse ${i==0?'show':''}`} aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                 <div className="accordion-body">
-                                                    {item.answer}
+                                                    {item.faqAnswer}
                                                 </div>
                                             </div>
                                         </div>

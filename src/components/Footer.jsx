@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react"
 import Axios, { web as AxiosWeb } from '../helper/axios'
+import { Link } from "react-router-dom";
 
 function Footer() {
+    const [menu, setMenu] = useState(false);
     const [pageDetails, setPageDetails] = useState(false)
     useEffect(() => {
+        AxiosWeb.get("/menuHead/menu")
+            .then(result => {
+                if (result.data.status == 200)
+                    setMenu(result.data.data)
+        })
+
         AxiosWeb.get(`/footerPage/contactUS`)
             .then(result => {
                 if (result.data.status == 200) {
@@ -44,11 +52,15 @@ function Footer() {
                         <h3>Study</h3>
                         <div className="list">
                             <ul>
-                                <li><a href="/training-courses">Training Courses</a></li>
-                                <li><a href="/Certificate-courses">Certificate Courses</a></li>
-                                <li><a href="/Diploma-courses">Diploma Courses</a></li>
-                                <li><a href="/pgd-courses">PGD Courses</a></li>
-                                <li><a href="/research-courses">Research Courses</a></li>
+                                {menu && menu.map((item,i)=>{
+                                    return (
+                                        <>{item.menuBreadcrumb=="study" && item.courseTypes.map((course,j)=>{
+                                            return (
+                                                <li key={j}><Link to={`/course-type/${course.id}`} className="nav-link">{course.courseTypeName}</Link></li>
+                                            )
+                                        })}</>
+                                    )
+                                })}
                             </ul>
                         </div>
                     </div>

@@ -6,6 +6,53 @@ import Axios, { web as AxiosWeb } from '../helper/axios'
 function Navbar() {
     const [menu, setMenu] = useState(false);
     const [pageDetails, setPageDetails] = useState(false)
+
+    const [webMessageName, setWebMessageName] = useState('')
+    const [webMessageEmail, setWebMessageEmail] = useState('')
+    const [webMessagePhoneNo, setWebMessagePhoneNo] = useState('')
+    const [webMessageSubject, setWebMessageSubject] = useState('')
+    const [webMessageMessage, setWebMessageMessage] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevents the default form submission behavior
+      
+        // Perform validation checks
+        if (webMessageName.trim() === '') {
+          // Handle name validation error
+          return;
+        }
+        else if (webMessageEmail.trim() === '') {
+            // Handle name validation error
+            return;
+        }
+        else if (webMessagePhoneNo.trim() === '') {
+            // Handle name validation error
+            return;
+        }
+        else if (webMessageMessage.trim() === '') {
+            // Handle name validation error
+            return;
+        }
+        const body ={
+            webMessageName:webMessageName,
+            webMessageEmail:webMessageEmail,
+            webMessagePhoneNo:webMessagePhoneNo,
+            webMessageSubject:webMessageSubject,
+            webMessageMessage:webMessageMessage
+        }
+        AxiosWeb.post("/web-message",body)
+        .then(result => {
+            if (result.data.status == 201){
+                setWebMessageName('');
+                setWebMessageEmail('');
+                setWebMessagePhoneNo('');
+                setWebMessageMessage('');
+                setWebMessageSubject('');
+                alert("Thank you so much for your message !")
+            }
+        })
+    };
+
     useEffect(() => {
         AxiosWeb.get("/menuHead/menu")
             .then(result => {
@@ -56,7 +103,11 @@ function Navbar() {
                                                     {item.menuName}
                                                 </a>
                                                 <ul className="dropdown-menu">
-
+                                                    {item.menuBreadcrumb == 'about-us' &&
+                                                        <li className="nav-item">
+                                                            <Link to={`/about-organization/details`} className="nav-link">Sus-plan</Link>
+                                                        </li>
+                                                    }
                                                     {item.courseTypes.map((page, j) => {
                                                         return (
                                                             <li className="nav-item" key={j}>
@@ -280,29 +331,35 @@ function Navbar() {
                                 </ul>
                                 <div className="contact-form">
                                     <h3>Ready to Get Started?</h3>
-                                    <form id="contactForm">
+                                    <form id="contactForm" onSubmit={handleSubmit}>
                                         <div className="row">
                                             <div className="col-lg-12 col-md-6">
                                                 <div className="form-group">
-                                                    <input type="text" name="name" className="form-control" required data-error="Please enter your name" placeholder="Your name" />
+                                                    <input type="text" name="name" value={webMessageName} onChange={(e)=>setWebMessageName(e.target.value)} className="form-control" required data-error="Please enter your name" placeholder="Your name" />
                                                     <div className="help-block with-errors"></div>
                                                 </div>
                                             </div>
                                             <div className="col-lg-12 col-md-6">
                                                 <div className="form-group">
-                                                    <input type="email" name="email" className="form-control" required data-error="Please enter your email" placeholder="Your email address" />
+                                                    <input type="email" name="email" value={webMessageEmail} onChange={(e)=>setWebMessageEmail(e.target.value)} className="form-control" required data-error="Please enter your email" placeholder="Your email address" />
                                                     <div className="help-block with-errors"></div>
                                                 </div>
                                             </div>
                                             <div className="col-lg-12 col-md-12">
                                                 <div className="form-group">
-                                                    <input type="text" name="phone_number" className="form-control" required data-error="Please enter your phone number" placeholder="Your phone number" />
+                                                    <input type="text" name="phone_number" value={webMessagePhoneNo} onChange={(e)=>setWebMessagePhoneNo(e.target.value)} className="form-control" required data-error="Please enter your phone number" placeholder="Your phone number" />
                                                     <div className="help-block with-errors"></div>
                                                 </div>
                                             </div>
                                             <div className="col-lg-12 col-md-12">
                                                 <div className="form-group">
-                                                    <textarea name="message" className="form-control" cols="30" rows="6" required data-error="Please enter your message" placeholder="Write your message..."></textarea>
+                                                    <input type="text" name="subject" value={webMessageSubject} onChange={(e)=>setWebMessageSubject(e.target.value)} className="form-control" required data-error="Please enter your subject" placeholder="Your subject" />
+                                                    <div className="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-12 col-md-12">
+                                                <div className="form-group">
+                                                    <textarea name="message" className="form-control" value={webMessageMessage} onChange={(e)=>setWebMessageMessage(e.target.value)} cols="30" rows="6" required data-error="Please enter your message" placeholder="Write your message..."></textarea>
                                                     <div className="help-block with-errors"></div>
                                                 </div>
                                             </div>
