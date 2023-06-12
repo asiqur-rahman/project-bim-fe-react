@@ -14,6 +14,8 @@ import ContactUSPage  from './pages/ContactUSPage'
 import FAQPage  from './pages/FAQPage'
 import PrivacyPolicyPage  from './pages/PrivacyPolicyPage'
 import TermsAndConditionPage  from './pages/TermsAndConditionPage'
+import SignInPage  from './pages/SignInPage'
+import RegistrationPage  from './pages/RegistrationPage'
 
 function App() {
 
@@ -39,6 +41,8 @@ function App() {
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-and-condition" element={<TermsAndConditionPage />} />
+          <Route path="/sign-in" element={<SignInPage />} />
+          <Route path="/registration" element={<RegistrationPage />} />
         </Routes>
       </BrowserRouter>
     </div>

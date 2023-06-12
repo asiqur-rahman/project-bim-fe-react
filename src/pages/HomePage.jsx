@@ -21,7 +21,7 @@ function HomePage() {
   return (
     <>
     <Spinner/>
-    <TopHeader/>
+    {/* <TopHeader/> */}
     <Navbar/>
     <Banner/>
     <Academic/>
