@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import Axios, { web as AxiosWeb } from '../helper/axios'
+import { Link, useNavigate  } from "react-router-dom";
+import * as common from '../helper/common'
 
 function CourseDetails(props) {
-
+    const navigate = useNavigate();
     const [details, setDetails] = useState(false)
 
     useEffect(() => {
@@ -15,8 +17,28 @@ function CourseDetails(props) {
                 }
             });
         }
-
     }, [props.id])
+
+    const enrollCourse =()=>{
+        window.SpinnerShow();
+        const user = common.getUser();
+        const details = JSON.parse(user.details);
+        Axios.post(`/course/enroll/${details.user_academicProfileId}&${props.id}`)
+        .then(result => {
+            window.SpinnerHide();
+            if (result.data.status == 200) {
+                alert(result.data.message);
+            }
+            else{
+                alert(result.data.message)
+            }
+        })
+        .catch((e)=>{
+            console.log(e)
+        })
+        // window.SpinnerShow();
+        // window.SpinnerHide();
+    }
 
     return (
         <>
@@ -202,7 +224,11 @@ function CourseDetails(props) {
                                             </li>
                                         </ul>
                                     </div>
-                                    <a href="#" className="default-btn btn">Enroll Course</a>
+                                    {common.isUserLogedIn() ? 
+                                        <button style={{width:"100%"}} className="default-btn btn" onClick={()=>enrollCourse()}>Enroll Course</button>
+                                        :
+                                        <Link to={`/sign-in?returnUrl=${encodeURIComponent(`/course-details/${props.id}`)}`} style={{width:"100%"}} className="default-btn btn">Sign In to Enroll Course</Link>
+                                    }
                                 </div>
                             </div>
                         </div>

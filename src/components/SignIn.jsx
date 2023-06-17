@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import axios, {web as AxiosWeb} from '../helper/axios'
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useNavigate   } from "react-router-dom";
 import * as common from '../helper/common'
 
 function Story(props) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const returnUrl = urlParams.get('returnUrl');
     const navigate = useNavigate();
     const [username, setUsername]=useState('')
     const [password, setPassword]=useState('')
@@ -21,13 +23,15 @@ function Story(props) {
         e.preventDefault();
         const values={
             username:username,
-            password:password
+            password:password,
+            web:true
         };
         await axios.post("/auth/login", values)
         .then(function (response) {
           if(response.data.status===200){
             common.setSession(response.data);
-            navigate('/');
+            if(returnUrl)navigate(returnUrl);
+            else navigate('/');
           }else{
             alert(response.data.message)
           }

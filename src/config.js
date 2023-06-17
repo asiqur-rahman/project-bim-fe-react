@@ -6,7 +6,7 @@ const Config = {
       devOrgLink: "http://www.bim.gov.bd/"
     },
     applicationSettings:{
-      developmentBaseURL : "https://braintechsolution.com:3335/api",//"http://localhost:3334/api",//
+      developmentBaseURL : "http://localhost:3334/api",//"https://braintechsolution.com:3335/api",//"http://localhost:3334/api",//
       productionBaseURL : "https://braintechsolution.com:3331/api",
       portalURL : "http://www.admin.sustainability.com.bd/",
       SESSION_NAME : "Sus-Plan",
