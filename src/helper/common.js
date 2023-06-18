@@ -26,16 +26,16 @@ export const isUserLogedIn = () => {
     const user = localStorage.getItem(Config.applicationSettings.SESSION_NAME);
     if(user){
         const data=decrypt(user);
-        if(data){
-            const session=JSON.parse(data);
-            if(session.jwtToken){
-                return true;
-            }
-            else{
-                removeSession();
-                return false;
-            }
-        }
+        const session=JSON.parse(data);
+        const SessionTime=new Date(session['sessionTime']).toLocaleTimeString();
+        const LocalTime=new Date().toLocaleTimeString()
+        // if(SessionTime>LocalTime){
+            return true;
+        // }
+        // else{
+        //     removeSession();
+        //     return false;
+        // }
     }
     else{
         removeSession();
@@ -48,14 +48,13 @@ export const getToken= (refreshToken=false) => {
     if(user){
         const data=decrypt(localStorage.getItem(Config.applicationSettings.SESSION_NAME));
         const session=JSON.parse(data);
-        // const SessionTime=new Date(session['sessionTime']).toLocaleTimeString();
-        // const LocalTime=new Date().toLocaleTimeString()
+        const SessionTime=new Date(session['sessionTime']).toLocaleTimeString();
+        const LocalTime=new Date().toLocaleTimeString()
          //const rrr=SessionTime>LocalTime;
          //alert(SessionTime + ' - '+ LocalTime + ' - '+ rrr);
          //return session.token;
         // if(SessionTime>LocalTime){
-            // return refreshToken?session.refreshToken:session.jwtToken;
-            return session.jwtToken;
+            return session.token;
         // }
         // else{
         //     removeSession();
@@ -69,13 +68,12 @@ export const getToken= (refreshToken=false) => {
 }
 
 export const setSession= async (sessionData) => {
-    // var sessionValidate = new Date();
-    // sessionValidate.setTime(new Date().getTime() + (sessionData.sessionTime*1000));
-    // sessionData.sessionTime = sessionValidate;
-    if(!sessionData.items)sessionData.items={};
-    var session = JSON.stringify(sessionData);
-    localStorage.setItem(Config.applicationSettings.SESSION_NAME,encrypt(session));
-    return true;
+    var sessionValidate = new Date();
+    sessionValidate.setTime(new Date().getTime() + (sessionData.sessionTime*1000));
+    sessionData.sessionTime = sessionValidate;
+    const string = JSON.stringify(sessionData);
+    const encrypted = encrypt(string);
+    localStorage.setItem(Config.applicationSettings.SESSION_NAME,encrypted);
 }
 
 export const removeSession= async (name) => {

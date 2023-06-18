@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import Logo from '/images/logo.png'
+import * as common from '../helper/common'
+import config from '../config'
 import Axios, { web as AxiosWeb } from '../helper/axios'
 
 function Navbar() {
@@ -247,28 +249,17 @@ function Navbar() {
                                         </li>
                                     </ul>
                                 </li>
-
-                                <li className="nav-item">
-                                    <a href="#" className="nav-link dropdown-toggle">
-                                        Registration
-                                    </a>
-                                    <ul className="dropdown-menu">
+                                */}
+                                    {!common.isUserLogedIn() && 
                                         <li className="nav-item">
-                                            <a href="#" className="nav-link">General Query</a>
+                                                <Link to="/sign-in" className="nav-link">Sign In</Link>
                                         </li>
-                                        <li className="nav-item">
-                                            <a href="#" className="nav-link">Request Admission</a>
+                                    }
+                                    {common.isUserLogedIn() && 
+                                        <li>
+                                            <a href={config.applicationSettings.portalURL} target="_blank" className="default-btn btn">My Account</a>
                                         </li>
-                                        <li className="nav-item">
-                                            <a href="#" className="nav-link">Enrollment</a>
-                                        </li>
-                                    </ul>
-                                </li> */}
-
-                                    <li>
-                                        <a href="login" className="default-btn btn">My Account</a>
-                                    </li>
-
+                                    }
                                 </ul>
                                 <div className="others-options">
                                     <div className="icon">

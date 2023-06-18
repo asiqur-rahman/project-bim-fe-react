@@ -9,7 +9,7 @@ function LatestNews(props) {
     
     const Render = () => {
         useEffect(()=>{
-            if(!newsList){
+            if(!newsList && props.page != "home-page"){
               AxiosWeb.get(`/newsAndBlog/list?listFor=news&filesNeeded=true&limit=5&offset=0`)
               .then(result=>{
                     window.SpinnerHide();
